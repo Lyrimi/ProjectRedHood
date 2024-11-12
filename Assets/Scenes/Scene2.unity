@@ -212,7 +212,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!212 &691114142
 SpriteRenderer:
@@ -293,10 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b06c2cf506c3be4dad1ff2f70b3a430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 5, y: 0}
+  direction: {x: 12, y: 0}
   angularVel: 500
   angularDrag: 0.02
-  deflectionMultiplier: 1.2
+  deflectionMultiplier: 0.6
 --- !u!1 &1280674360
 GameObject:
   m_ObjectHideFlags: 0
