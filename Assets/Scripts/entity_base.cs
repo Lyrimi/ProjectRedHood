@@ -4,13 +4,11 @@ using UnityEngine;
 
 public abstract class entity_base : MonoBehaviour
 {
-    Rigidbody2D rb;
-    Renderer render;
+    internal Rigidbody2D rb;
+    internal Renderer render;
     public int MaxHealth = 3;
-    public int MaxCoyoteTime;
     public int MaxHitFrames;
     internal bool grounded;
-    internal int CoyoteTime;
     internal float gravity = 1f;
     internal int health;
     internal int hitFrames;
@@ -36,10 +34,6 @@ public abstract class entity_base : MonoBehaviour
         {
             hitFrames--;
         }
-        if (!grounded && CoyoteTime < 0)
-        {
-            CoyoteTime--;
-        }
     }
 
     public void damage(int damage) 
@@ -50,17 +44,16 @@ public abstract class entity_base : MonoBehaviour
         }
     }
 
+    //Ground detection + Cyote time
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
         {
             grounded = true;
-            CoyoteTime = MaxCoyoteTime;
         }
         else if (collision.contacts[0].normal.y < -0.8f && gravity < 0)
         {
             grounded = true;
-            CoyoteTime = MaxCoyoteTime;
         }
 
     }
@@ -69,12 +62,11 @@ public abstract class entity_base : MonoBehaviour
         if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
         {
             grounded = true;
-            CoyoteTime = MaxCoyoteTime;
+            
         }
         else if (collision.contacts[0].normal.y < -0.8f && gravity < 0)
         {
             grounded = true;
-            CoyoteTime = MaxCoyoteTime;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
