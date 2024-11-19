@@ -9,9 +9,10 @@ public class PlayerControler : entity_base
     SpriteRenderer spRend;
     public int MaxCoyoteTime;
     public int JumpAcelTime;
-    public int jumpforce;
-    public int MaxSpeed;
-    public int SpeedAcel;
+    public float jumpforce;
+    public float MaxSpeed;
+    public float SpeedAcel;
+    public float friction;
     int CoyoteTime;
     int AcelTime;
     // Start is called before the first frame update
@@ -67,10 +68,22 @@ public class PlayerControler : entity_base
     }
     void HorizontalMove()
     {
+        float axis = Input.GetAxisRaw("Horizontal");
+        float x = axis * SpeedAcel;
+        //adds speed if the speed goes over speed maxspeed set speed to max speed
+        float veloshouldbe = rb.velocity.x + x;
+        rb.AddForce(new Vector2(x, 0));
+        if (Mathf.Abs(rb.velocity.x) >= MaxSpeed)
+        {
+            rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1) * MaxSpeed, rb.velocity.y);
+        }
         
-        float x = Input.GetAxis("Horizontal") * SpeedAcel;
-        //gets difrence between current speed and max speed creates a number from 0-1 that the speed(x) is multiplied with
-        rb.AddForce(new Vector2(x - rb.velocity.x, 0));
+        //Fiction logic
+        if (Mathf.Abs(rb.velocity.x) > 0 & math.abs(axis) == 0)
+        {
+            rb.AddForce(new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1) * -(friction), 0));
+        }
+
 
         //Animation State change
         if (x != 0)
