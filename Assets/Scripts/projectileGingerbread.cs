@@ -34,7 +34,7 @@ public class projectileGingerbread : MonoBehaviour
         if (collided) {
             float time = Time.time-collisionTimestamp;
             if (time >= shrinkTime) {
-                Destroy(this);
+                Destroy(gameObject);
             } else {
                 transform.localScale = originalScale*(1 - time/shrinkTime);
             }
