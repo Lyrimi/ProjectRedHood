@@ -44,7 +44,7 @@ public abstract class entity_base : MonoBehaviour
         }
     }
 
-    //Ground detection + Cyote time
+    //Ground detection
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
