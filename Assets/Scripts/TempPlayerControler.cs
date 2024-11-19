@@ -150,14 +150,8 @@ public class TempPlayerControler : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal") * Speed;
         rb.AddForce(new Vector2(x - rb.velocity.x, 0));
-        if (x != 0)
-        {
-            anim.SetBool("Walking", true);
-        }
-        else
-        {
-            anim.SetBool("Walking", false);
-        }
+       
+        
         if (x > 0)
         {
             spRend.flipX = false;
