@@ -1,19 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerControler : entity_base
 {
+    SpriteRenderer spRend;
     public int MaxCoyoteTime;
     public int JumpAcelTime;
     public int jumpforce;
+    public int MaxSpeed;
+    public int SpeedAcel;
     int CoyoteTime;
     int AcelTime;
     // Start is called before the first frame update
     void Start()
     {
+        //get components
         rb = GetComponent<Rigidbody2D>();
         render = GetComponent<Renderer>();
+        spRend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -32,7 +39,8 @@ public class PlayerControler : entity_base
         //Jump logic
         jumpMove();
 
-        Debug.Log(CoyoteTime);
+        //horizontal movment
+        HorizontalMove();
     }
 
     void jumpMove()
@@ -55,6 +63,33 @@ public class PlayerControler : entity_base
         else
         {
             AcelTime = 0;
+        }
+    }
+    void HorizontalMove()
+    {
+        
+        float x = Input.GetAxis("Horizontal") * SpeedAcel;
+        //gets difrence between current speed and max speed creates a number from 0-1 that the speed(x) is multiplied with
+        rb.AddForce(new Vector2(x - rb.velocity.x, 0));
+
+        //Animation State change
+        if (x != 0)
+        {
+            //anim.SetBool("Walking", true);
+        }
+        else
+        {
+            //anim.SetBool("Walking", false);
+        }
+
+        //sprite Flip
+        if (x > 0)
+        {
+            spRend.flipX = false;
+        }
+        if (x < 0)
+        {
+            spRend.flipX = true;
         }
     }
 }
