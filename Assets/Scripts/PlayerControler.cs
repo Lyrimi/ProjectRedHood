@@ -96,11 +96,11 @@ public class PlayerControler : entity_base
         }
 
         //sprite Flip
-        if (x > 0)
+        if (axis > 0)
         {
             spRend.flipX = false;
         }
-        if (x < 0)
+        if (axis < 0)
         {
             spRend.flipX = true;
         }
