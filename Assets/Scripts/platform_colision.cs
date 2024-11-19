@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class paltform_colision : MonoBehaviour
+public class platform_colision : MonoBehaviour
 {
     public GameObject player;
     BoxCollider2D Box;
