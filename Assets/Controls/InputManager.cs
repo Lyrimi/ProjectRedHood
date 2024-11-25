@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput.IUIActions
 {
@@ -44,13 +45,16 @@ public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput
     }
 
     //defines event to send information to other scripts
-  public event Action<Vector2> MoveEvent;
+    public event Action<Vector2> MoveEvent;
   
-  public event Action JumpEvent;
-  public event Action JumpEventCancel;
-  
-  public event Action PauseEvent;
-  public event Action ResumeEvent;
+    public event Action JumpEvent;
+    public event Action JumpEventCancel;
+
+    public event Action DashEvent;
+    public event Action DashEventCancel;
+
+    public event Action PauseEvent;
+    public event Action ResumeEvent;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -67,6 +71,18 @@ public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput
         if (context.canceled) 
         {
             JumpEventCancel?.Invoke();
+        }
+    }
+    public void OnDash(InputAction.CallbackContext context) 
+    {
+        //Same logic as jump
+        if (context.performed)
+        {
+            DashEvent?.Invoke();
+        }
+        if (context.canceled)
+        {
+            DashEventCancel?.Invoke();
         }
     }
     public void OnPause(InputAction.CallbackContext context) 

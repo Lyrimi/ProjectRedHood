@@ -530,13 +530,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 3
-  MaxHitFrames: 0
+  MaxHitFrames: 10
   MaxSpeed: 10
   SpeedAcel: 20
-  friction: 5
-  MaxCoyoteTime: 5
-  JumpAcelTime: 5
-  jumpforce: 100
+  friction: 20
+  MaxCoyoteTime: 3
+  JumpAcelTime: 4
+  jumpforce: 90
+  DashVelocity: 50
+  DashFrames: 5
+  DashCooldown: 1.2
   Input: {fileID: 1428972414}
 --- !u!1 &1462521493
 GameObject:

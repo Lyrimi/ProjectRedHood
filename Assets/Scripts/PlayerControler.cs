@@ -14,19 +14,29 @@ public class PlayerControler : entity_base
     [SerializeField] private float SpeedAcel;
     [SerializeField] private float friction;
 
-    [Header("Jump Movment")]
+    [Header("Jump")]
     [SerializeField] private int MaxCoyoteTime;
     [SerializeField] private int JumpAcelTime;
     [SerializeField] private float jumpforce;
 
+    [Header("Dash")]
+    [SerializeField] private float DashVelocity;
+    [SerializeField] private int DashFrames;
+    [Tooltip("seconds")]
+    [SerializeField] private float DashCooldown;
+
     [Header("Input")]
     [SerializeField] private InputManager Input;
 
-    int CoyoteTime;
-    int AcelTime;
+    int coyoteTime;
+    int acelTime;
+    int dashtime;
+    float currentDashCooldown;
 
     Vector2 moveDir;
+    Vector2 dashDir;
     bool isJumping;
+    bool isDashing;
 
     private void OnEnable()
     {
@@ -34,6 +44,8 @@ public class PlayerControler : entity_base
         Input.MoveEvent += inputMove;
         Input.JumpEvent += inputJump;
         Input.JumpEventCancel += inputJumpCancel;
+        Input.DashEvent += inputDash;
+        Input.DashEventCancel += inputDashCancel;
     }
 
     
@@ -61,45 +73,65 @@ public class PlayerControler : entity_base
     {
         isJumping= false;
     }
-    
+    private void inputDash() 
+    {
+        isDashing = true;
+    }
+    private void inputDashCancel() 
+    {
+        isDashing= false;
+    }
+
+    //runs every frame
+    private void Update()
+    {
+        //reduces current Dashcooldown by using DeltaTime to take the time in secounds insted of frames
+        if (currentDashCooldown > 0)
+        {
+            currentDashCooldown -= Time.deltaTime;
+        }
+        if (currentDashCooldown < 0) { currentDashCooldown = 0; }
+        Debug.Log(currentDashCooldown);
+    }
+    //This runs once every physics frame
     void FixedUpdate()
     {
+        //Reduces cyote time in frames
         if (grounded)
         {
-            CoyoteTime = MaxCoyoteTime;
+            coyoteTime = MaxCoyoteTime;
         }
-        else if (CoyoteTime > 0) 
+        else if (coyoteTime > 0) 
         {
-            CoyoteTime -= 1;
+            coyoteTime -= 1;
         }
 
-        //Jump logic
+        // These call the functions in charge of moving the player
         jumpMove();
-
-        //horizontal movment
         HorizontalMove();
+        Dash();
     }
 
     void jumpMove()
     {
         //gets button and checks coyotetime
-        if (isJumping && CoyoteTime > 0)
+        if (isJumping && coyoteTime > 0)
         {
             //sets acel time for the maxmium time the force of the jump can be apllied
-            AcelTime = JumpAcelTime;
-            CoyoteTime = 0;
+            acelTime = JumpAcelTime;
+            coyoteTime = 0;
             rb.AddForce(new Vector2(0, jumpforce));
         }
         //While jump button is pressed and aceltime is still active make the y force equal to the jumpforce
-        if (isJumping && AcelTime > 0)
+        if (isJumping && acelTime > 0)
         {
             rb.AddForce(new Vector2(0, ((jumpforce) - rb.velocity.y)));
-            AcelTime -= 1;
+            acelTime -= 1;
         }
         //when button is realsed set acel time to 0
         else
         {
-            AcelTime = 0;
+            acelTime = 0;
         }
     }
     void HorizontalMove()
@@ -139,6 +171,20 @@ public class PlayerControler : entity_base
         if (axis < 0)
         {
             spRend.flipX = true;
+        }
+    }
+    void Dash() 
+    {
+        if (isDashing && currentDashCooldown <= 0) 
+        {
+            dashtime = DashFrames;
+            dashDir = moveDir;
+            currentDashCooldown = DashCooldown;
+        }
+        if (dashtime > 0) 
+        {
+            rb.velocity = new Vector2(dashDir.x * DashVelocity, 0);
+            dashtime -= 1;
         }
     }
 }
