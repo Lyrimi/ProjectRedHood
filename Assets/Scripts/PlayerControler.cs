@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerControler : entity_base
 {
@@ -15,6 +17,33 @@ public class PlayerControler : entity_base
     public float friction;
     int CoyoteTime;
     int AcelTime;
+
+    public PlayerControls playerInput;
+    Vector2 moveDir;
+    InputAction move;
+    InputAction jump;
+
+
+    private void Awake()
+    {
+        playerInput = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        move = playerInput.Player.Move;
+        move.Enable();
+
+        jump = playerInput.Player.Jump;
+        jump.Enable();
+    }
+
+    private void OnDisable()
+    {
+        move.Disable();
+        jump.Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +53,13 @@ public class PlayerControler : entity_base
         spRend = GetComponent<SpriteRenderer>();
     }
 
+
     // Update is called once per frame
+
+    private void Update()
+    {
+        moveDir = move.ReadValue<Vector2>();
+    }
     void FixedUpdate()
     {
        
@@ -47,7 +82,7 @@ public class PlayerControler : entity_base
     void jumpMove()
     {
         //gets button and checks coyotetime
-        if (Input.GetButton("Jump") && CoyoteTime > 0)
+        if (jump.IsPressed() && CoyoteTime > 0)
         {
             //sets acel time for the maxmium time the force of the jump can be apllied
             AcelTime = JumpAcelTime;
@@ -55,7 +90,7 @@ public class PlayerControler : entity_base
             rb.AddForce(new Vector2(0, jumpforce));
         }
         //While jump button is pressed and aceltime is still active make the y force equal to the jumpforce
-        if (Input.GetButton("Jump") && AcelTime > 0)
+        if (jump.IsPressed() && AcelTime > 0)
         {
             rb.AddForce(new Vector2(0, ((jumpforce) - rb.velocity.y)));
             AcelTime -= 1;
@@ -68,7 +103,7 @@ public class PlayerControler : entity_base
     }
     void HorizontalMove()
     {
-        float axis = Input.GetAxisRaw("Horizontal");
+        float axis = moveDir.x;
         float x = axis * SpeedAcel;
         //adds speed if the speed goes over speed maxspeed set speed to max speed
         float veloshouldbe = rb.velocity.x + x;
