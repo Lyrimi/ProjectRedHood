@@ -9,40 +9,34 @@ using UnityEngine.InputSystem;
 public class PlayerControler : entity_base
 {
     SpriteRenderer spRend;
-    public int MaxCoyoteTime;
-    public int JumpAcelTime;
-    public float jumpforce;
-    public float MaxSpeed;
-    public float SpeedAcel;
-    public float friction;
+    [Header("Horzontal Movment")]
+    [SerializeField] private float MaxSpeed;
+    [SerializeField] private float SpeedAcel;
+    [SerializeField] private float friction;
+
+    [Header("Jump Movment")]
+    [SerializeField] private int MaxCoyoteTime;
+    [SerializeField] private int JumpAcelTime;
+    [SerializeField] private float jumpforce;
+
+    [Header("Input")]
+    [SerializeField] private InputManager Input;
+
     int CoyoteTime;
     int AcelTime;
 
-    public PlayerControls playerInput;
     Vector2 moveDir;
-    InputAction move;
-    InputAction jump;
-
-
-    private void Awake()
-    {
-        playerInput = new PlayerControls();
-    }
+    bool isJumping;
 
     private void OnEnable()
     {
-        move = playerInput.Player.Move;
-        move.Enable();
-
-        jump = playerInput.Player.Jump;
-        jump.Enable();
+        //Subscribes the event functions to the functions in this script
+        Input.MoveEvent += inputMove;
+        Input.JumpEvent += inputJump;
+        Input.JumpEventCancel += inputJumpCancel;
     }
 
-    private void OnDisable()
-    {
-        move.Disable();
-        jump.Disable();
-    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -54,15 +48,22 @@ public class PlayerControler : entity_base
     }
 
 
-    // Update is called once per frame
-
-    private void Update()
+    //This Handles Input Events
+    private void inputMove(Vector2 direction)
     {
-        moveDir = move.ReadValue<Vector2>();
+        moveDir = direction;
     }
+    private void inputJump() 
+    {
+        isJumping = true;
+    }
+    private void inputJumpCancel() 
+    {
+        isJumping= false;
+    }
+    
     void FixedUpdate()
     {
-       
         if (grounded)
         {
             CoyoteTime = MaxCoyoteTime;
@@ -82,7 +83,7 @@ public class PlayerControler : entity_base
     void jumpMove()
     {
         //gets button and checks coyotetime
-        if (jump.IsPressed() && CoyoteTime > 0)
+        if (isJumping && CoyoteTime > 0)
         {
             //sets acel time for the maxmium time the force of the jump can be apllied
             AcelTime = JumpAcelTime;
@@ -90,7 +91,7 @@ public class PlayerControler : entity_base
             rb.AddForce(new Vector2(0, jumpforce));
         }
         //While jump button is pressed and aceltime is still active make the y force equal to the jumpforce
-        if (jump.IsPressed() && AcelTime > 0)
+        if (isJumping && AcelTime > 0)
         {
             rb.AddForce(new Vector2(0, ((jumpforce) - rb.velocity.y)));
             AcelTime -= 1;
