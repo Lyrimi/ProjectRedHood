@@ -12,7 +12,7 @@ public class projectileGingerbread : MonoBehaviour
     public float deflectionMultiplier;
     public float shrinkTime;
     Rigidbody2D rb;
-    Vector3 originalScale;
+    Vector2 originalScale;
     Boolean collided = false;
     float collisionTimestamp;
 
