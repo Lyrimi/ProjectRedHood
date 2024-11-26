@@ -44,7 +44,9 @@ public class projectileGingerbread : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if (!collided) {
             collided = true;
-            Vector2 deflection = collision.GetContact(0).normal;
+            Vector2 surfaceNormal = collision.GetContact(0).normal;
+            float angle = 2*Mathf.Atan2(surfaceNormal.y, surfaceNormal.x)-Mathf.Atan2(direction.y, direction.x)+Mathf.PI;
+            Vector2 deflection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             deflection *= direction.magnitude*deflectionMultiplier;
             rb.velocity = deflection;
             rb.gravityScale = 1;
