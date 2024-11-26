@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3386139171901677249}
   - component: {fileID: 4261509125950454140}
   - component: {fileID: 8808307904901981902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,9 +123,10 @@ MonoBehaviour:
   direction: {x: -3, y: 3}
   fragmentObject: {fileID: 4093209730701795106, guid: 0519fa582608c1a499ed737bff64ac8e, type: 3}
   fragmentCount: 8
-  deflectionMultiplier: 4
-  deflectionMaxAngleDeviation: 0.7853982
-  deflectionMaxSpeedDeviation: 0.2
+  deflectionMultiplier: 1
+  deflectionMultiplierRange: 0.2
+  minScatterSpeed: 0.5
+  maxScatterSpeed: 1.5
 --- !u!1 &6605354464455113651
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469767585679255872}
   - component: {fileID: 8258086095363280591}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: appleSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

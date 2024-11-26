@@ -48,8 +48,8 @@ public class apple : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void setDirection(Vector2 direction) {
-        this.direction = direction;
-        rb.velocity = direction;
+    public void setDirection(Vector2 dir) {
+        direction = dir;
+
     }
 }
