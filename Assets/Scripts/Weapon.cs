@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [Header("Projectile")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float ProjectileSpeed;
+    [SerializeField] private float YSpeed;
 
     [Header("Input")]
     [SerializeField] private InputManager Input;
@@ -25,7 +26,7 @@ public class Weapon : MonoBehaviour
     private void inputShoot()
     {
         GameObject CurentProjectile = Instantiate(projectile, transform.position, transform.rotation);
-        CurentProjectile.SendMessage("setDirection",new Vector2(ProjectileSpeed*fliped, ProjectileSpeed));
+        CurentProjectile.SendMessage("setDirection",new Vector2(ProjectileSpeed*fliped, YSpeed));
         Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), CurentProjectile.GetComponent<Collider2D>());
     }
 
@@ -45,5 +46,6 @@ public class Weapon : MonoBehaviour
         {
             fliped = -1;
         }
+        
     }
 }
