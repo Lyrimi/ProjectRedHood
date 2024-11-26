@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7764407450382788613}
   - component: {fileID: 2307253652049276869}
   - component: {fileID: 1084241204411734021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: gingerbreadMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
