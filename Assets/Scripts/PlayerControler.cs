@@ -101,7 +101,7 @@ public class PlayerControler : entity_base
     void FixedUpdate()
     {
         //Reduces cyote time in frames
-        if (grounded)
+        if (grounded && rb.velocity.y <= 0)
         {
             coyoteTime = MaxCoyoteTime;
         }
