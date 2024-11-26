@@ -52,4 +52,9 @@ public class projectileGingerbread : MonoBehaviour
             collisionTimestamp = Time.time;
         }
     }
+
+    public void setDirection(Vector2 direction) {
+        this.direction = direction;
+        rb.velocity = direction;
+    }
 }
