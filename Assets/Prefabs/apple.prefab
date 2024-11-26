@@ -123,9 +123,10 @@ MonoBehaviour:
   direction: {x: -3, y: 3}
   fragmentObject: {fileID: 4093209730701795106, guid: 0519fa582608c1a499ed737bff64ac8e, type: 3}
   fragmentCount: 8
-  deflectionMultiplier: 4
-  deflectionMaxAngleDeviation: 0.7853982
-  deflectionMaxSpeedDeviation: 0.2
+  deflectionMultiplier: 0.8
+  deflectionMultiplierRange: 0.2
+  minScatterSpeed: 0.5
+  maxScatterSpeed: 1.5
 --- !u!1 &6605354464455113651
 GameObject:
   m_ObjectHideFlags: 0

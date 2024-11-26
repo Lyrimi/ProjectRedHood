@@ -50,6 +50,5 @@ public class apple : MonoBehaviour
 
     public void setDirection(Vector2 direction) {
         this.direction = direction;
-        rb.velocity = direction;
     }
 }
