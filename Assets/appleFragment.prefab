@@ -119,6 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a19b58ba6d201e4581833f536214ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shrinkTimeMin: 1.5
+  shrinkTimeMax: 3
+  shrinkBeginTime: 0.5
 --- !u!1 &6596896506748097250
 GameObject:
   m_ObjectHideFlags: 0
