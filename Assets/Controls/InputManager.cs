@@ -56,6 +56,8 @@ public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput
     public event Action PauseEvent;
     public event Action ResumeEvent;
 
+    public event Action ShootEvent;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         //sends vector2 to the moveevent (The question mark is to stop it from sending data if the event is null because that will cause a error)
@@ -84,6 +86,13 @@ public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput
         {
             DashEventCancel?.Invoke();
         }
+    }
+    public void OnShoot(InputAction.CallbackContext context) 
+    {
+        if (context.started)
+        {
+            ShootEvent?.Invoke();
+        } 
     }
     public void OnPause(InputAction.CallbackContext context) 
     {

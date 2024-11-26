@@ -46,6 +46,7 @@ public class PlayerControler : entity_base
         Input.JumpEventCancel += inputJumpCancel;
         Input.DashEvent += inputDash;
         Input.DashEventCancel += inputDashCancel;
+        Input.ShootEvent += inputShoot;
     }
 
     
@@ -81,6 +82,10 @@ public class PlayerControler : entity_base
     {
         isDashing= false;
     }
+    private void inputShoot() 
+    {
+        
+    }
 
     //runs every frame
     private void Update()
@@ -91,13 +96,12 @@ public class PlayerControler : entity_base
             currentDashCooldown -= Time.deltaTime;
         }
         if (currentDashCooldown < 0) { currentDashCooldown = 0; }
-        Debug.Log(currentDashCooldown);
     }
     //This runs once every physics frame
     void FixedUpdate()
     {
         //Reduces cyote time in frames
-        if (grounded)
+        if (grounded && rb.velocity.y <= 0)
         {
             coyoteTime = MaxCoyoteTime;
         }
