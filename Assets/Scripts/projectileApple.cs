@@ -29,6 +29,9 @@ public class apple : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision) {
         if (fragmentObject != null) {
+            /*Vector2 surfaceNormal = collision.GetContact(0).normal;
+            float deflectionAngle = 2*Mathf.Atan2(surfaceNormal.y, surfaceNormal.x)-Mathf.Atan2(rb.velocity.y, rb.velocity.x)+Mathf.PI;
+            Vector2 deflection = new Vector2(Mathf.Cos(deflectionAngle), Mathf.Sin(deflectionAngle))*rb.velocity.magnitude;*/
             Vector2 deflection = collision.GetContact(0).normal*rb.velocity.magnitude;
             Collider2D[] colliders = new Collider2D[fragmentCount];
             for (int i = 0; i < fragmentCount; i++) {
@@ -48,8 +51,7 @@ public class apple : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void setDirection(Vector2 dir) {
-        direction = dir;
-
+    public void setDirection(Vector2 direction) {
+        this.direction = direction;
     }
 }
