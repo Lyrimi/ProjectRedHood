@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2176182667041572976}
   - component: {fileID: 131323033321180303}
   - component: {fileID: 137196136810412614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: appleFragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6744043901830552827}
   - component: {fileID: 4763954007513073422}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: appleFragmentSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

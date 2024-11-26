@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -28,6 +29,8 @@ public class PlayerControler : entity_base
     [Header("Input")]
     [SerializeField] private InputManager Input;
 
+    
+
     int coyoteTime;
     int acelTime;
     int dashtime;
@@ -46,7 +49,6 @@ public class PlayerControler : entity_base
         Input.JumpEventCancel += inputJumpCancel;
         Input.DashEvent += inputDash;
         Input.DashEventCancel += inputDashCancel;
-        Input.ShootEvent += inputShoot;
     }
 
     
@@ -82,10 +84,7 @@ public class PlayerControler : entity_base
     {
         isDashing= false;
     }
-    private void inputShoot() 
-    {
-        
-    }
+    
 
     //runs every frame
     private void Update()
