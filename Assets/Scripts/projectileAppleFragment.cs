@@ -6,6 +6,7 @@ public class projectileAppleFragment : MonoBehaviour {
     public float shrinkTimeMin;
     public float shrinkTimeMax;
     public float shrinkBeginTime;
+    public SpriteRenderer renderer;
     float shrinkStartTime;
     float shrinkTime;
     Vector2 originalScale;
@@ -14,6 +15,9 @@ public class projectileAppleFragment : MonoBehaviour {
         shrinkStartTime = Time.time+shrinkBeginTime;
         shrinkTime = Random.Range(shrinkTimeMin, shrinkTimeMax);
         originalScale = transform.localScale;
+        float degrees = Random.Range(-360, 360);
+        transform.rotation = Quaternion.Euler(0, 0, degrees);
+        renderer.flipX = degrees < 0;
     }
 
     // Update is called once per frame

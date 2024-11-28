@@ -23,6 +23,7 @@ public class projectileGingerbread : MonoBehaviour
         rb.velocity = direction;
         rb.angularVelocity = angularVel;
         originalScale = transform.localScale;
+        transform.rotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-180, 180));
     }
 
     // Update is called once per frame

@@ -35,7 +35,7 @@ public class apple : MonoBehaviour
             Vector2 deflection = collision.GetContact(0).normal*rb.velocity.magnitude;
             Collider2D[] colliders = new Collider2D[fragmentCount];
             for (int i = 0; i < fragmentCount; i++) {
-                GameObject fragment = Instantiate(fragmentObject, transform.position, Quaternion.Euler(0, 0, Random.Range(-180, 180)));
+                GameObject fragment = Instantiate(fragmentObject, transform.position, Quaternion.identity);
                 Vector2 vel = deflection*deflectionMultiplier*(1+Random.Range(-deflectionMultiplierRange, deflectionMultiplierRange));
                 float angle = Random.Range(-180, 180);
                 float scatterSpeed = Random.Range(minScatterSpeed, maxScatterSpeed);
