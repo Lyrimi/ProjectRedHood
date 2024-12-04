@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveing_platform : platform_colision
+public class moving_platform : platform_collision
 {
     Transform startpos;
     public Transform[] list;

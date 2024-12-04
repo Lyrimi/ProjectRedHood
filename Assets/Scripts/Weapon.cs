@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
 
     [Header("Input")]
     [SerializeField] private InputManager Input;
-    int fliped = 1;
+    int flipped = 1;
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -25,9 +25,9 @@ public class Weapon : MonoBehaviour
     }
     private void inputShoot()
     {
-        GameObject CurentProjectile = Instantiate(projectile, transform.position, transform.rotation);
-        CurentProjectile.SendMessage("setDirection",new Vector2(ProjectileSpeed*fliped, YSpeed));
-        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), CurentProjectile.GetComponent<Collider2D>());
+        GameObject CurrentProjectile = Instantiate(projectile, transform.position, transform.rotation);
+        CurrentProjectile.SendMessage("setDirection",new Vector2(ProjectileSpeed*flipped, YSpeed));
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), CurrentProjectile.GetComponent<Collider2D>());
     }
 
     void Start()
@@ -40,11 +40,11 @@ public class Weapon : MonoBehaviour
     {
         if (spRend.flipX == false)
         {
-            fliped = 1;
+            flipped = 1;
         }
         else
         {
-            fliped = -1;
+            flipped = -1;
         }
         
     }

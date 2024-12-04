@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerControler : entity_base
+public class PlayerController : entity_base
 {
     SpriteRenderer spRend;
     [Header("Horzontal Movment")]
@@ -17,8 +17,8 @@ public class PlayerControler : entity_base
 
     [Header("Jump")]
     [SerializeField] private int MaxCoyoteTime;
-    [SerializeField] private int JumpAcelTime;
-    [SerializeField] private float jumpforce;
+    [SerializeField] private int JumpAccelTime;
+    [SerializeField] private float jumpForce;
 
     [Header("Dash")]
     [SerializeField] private float DashVelocity;
@@ -32,8 +32,8 @@ public class PlayerControler : entity_base
     
 
     int coyoteTime;
-    int acelTime;
-    int dashtime;
+    int accelTime;
+    int dashTime;
     float currentDashCooldown;
 
     Vector2 moveDir;
@@ -120,21 +120,21 @@ public class PlayerControler : entity_base
         //gets button and checks coyotetime
         if (isJumping && coyoteTime > 0)
         {
-            //sets acel time for the maxmium time the force of the jump can be apllied
-            acelTime = JumpAcelTime;
+            //sets accel time for the maxmium time the force of the jump can be apllied
+            accelTime = JumpAccelTime;
             coyoteTime = 0;
-            rb.AddForce(new Vector2(0, jumpforce));
+            rb.AddForce(new Vector2(0, jumpForce));
         }
-        //While jump button is pressed and aceltime is still active make the y force equal to the jumpforce
-        if (isJumping && acelTime > 0)
+        //While jump button is pressed and aceltime is still active make the y force equal to the jumpForce
+        if (isJumping && accelTime > 0)
         {
-            rb.AddForce(new Vector2(0, ((jumpforce) - rb.velocity.y)));
-            acelTime -= 1;
+            rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)));
+            accelTime -= 1;
         }
-        //when button is realsed set acel time to 0
+        //when button is realsed set accel time to 0
         else
         {
-            acelTime = 0;
+            accelTime = 0;
         }
     }
     void HorizontalMove()
@@ -142,14 +142,14 @@ public class PlayerControler : entity_base
         float axis = moveDir.x;
         float x = axis * SpeedAcel;
         //adds speed if the speed goes over speed maxspeed set speed to max speed
-        float veloshouldbe = rb.velocity.x + x;
+        //(unused) float veloshouldbe = rb.velocity.x + x;
         rb.AddForce(new Vector2(x, 0));
         if (Mathf.Abs(rb.velocity.x) >= MaxSpeed)
         {
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1) * MaxSpeed, rb.velocity.y);
         }
         
-        //Fiction logic
+        //Friction logic
         if (Mathf.Abs(rb.velocity.x) > 0 & math.abs(axis) == 0)
         {
             rb.AddForce(new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1) * -(friction), 0));
@@ -180,14 +180,14 @@ public class PlayerControler : entity_base
     {
         if (isDashing && currentDashCooldown <= 0) 
         {
-            dashtime = DashFrames;
+            dashTime = DashFrames;
             dashDir = moveDir;
             currentDashCooldown = DashCooldown;
         }
-        if (dashtime > 0) 
+        if (dashTime > 0) 
         {
             rb.velocity = new Vector2(dashDir.x * DashVelocity, 0);
-            dashtime -= 1;
+            dashTime -= 1;
         }
     }
 }

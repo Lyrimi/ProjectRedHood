@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TempPlayerControler : MonoBehaviour
+public class TempPlayerController : MonoBehaviour
 {
     ParticleSystem PartiSystem;
     SpriteRenderer spRend;
@@ -25,8 +25,8 @@ public class TempPlayerControler : MonoBehaviour
     int Respawn = 0;
     int hit_frames = 0;
     Vector3 startpos;
-    public int JumpAcelTime;
-    int AcelTime;
+    public int JumpAccelTime;
+    int AccelTime;
     public float gravity = 1;
     int gravScale;
 
@@ -166,18 +166,18 @@ public class TempPlayerControler : MonoBehaviour
     {
         if (Input.GetButton("Jump") && CoyoteTime > 0)
         {
-            AcelTime = JumpAcelTime;
+            AccelTime = JumpAccelTime;
             CoyoteTime = 0;
             rb.AddForce(new Vector2(0, jumpforce * gravScale));
         }
-        if (Input.GetButton("Jump") && AcelTime > 0)
+        if (Input.GetButton("Jump") && AccelTime > 0)
         {
             rb.AddForce(new Vector2(0, ((jumpforce * gravScale) - rb.velocity.y)));
-            AcelTime -= 1;
+            AccelTime -= 1;
         }
         else
         {
-            AcelTime = 0;
+            AccelTime = 0;
         }
     }
     void gravityManager()

@@ -40,7 +40,7 @@ public abstract class entity_base : MonoBehaviour
     {
         if (hitFrames <= 0) 
         {
-            health = health - damage;
+            health -= damage;
         }
     }
 
