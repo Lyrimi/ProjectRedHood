@@ -122,7 +122,7 @@ MonoBehaviour:
   shrinkTimeMin: 1.5
   shrinkTimeMax: 3
   shrinkBeginTime: 0.5
-  renderer: {fileID: 4763954007513073422}
+  sr: {fileID: 4763954007513073422}
 --- !u!1 &6596896506748097250
 GameObject:
   m_ObjectHideFlags: 0
