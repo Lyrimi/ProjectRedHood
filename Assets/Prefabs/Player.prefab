@@ -219,12 +219,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 3
   MaxHitFrames: 10
-  MaxSpeed: 10
-  SpeedAcel: 20
-  friction: 20
+  MaxSpeed: 8
+  SpeedAcel: 45
+  friction: 70
+  airFriction: 25
   MaxCoyoteTime: 3
-  JumpAcelTime: 4
-  jumpforce: 90
+  JumpAccelTime: 15
+  jumpForce: 8
   DashVelocity: 50
   DashFrames: 5
   DashCooldown: 1.2
@@ -243,4 +244,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   ProjectileSpeed: 0
+  YSpeed: 0
   Input: {fileID: 3077627284087651250}

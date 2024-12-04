@@ -14,6 +14,7 @@ public class PlayerController : entity_base
     [SerializeField] private float MaxSpeed;
     [SerializeField] private float SpeedAcel;
     [SerializeField] private float friction;
+    [SerializeField] private float airFriction;
 
     [Header("Jump")]
     [SerializeField] private int MaxCoyoteTime;
@@ -99,7 +100,7 @@ public class PlayerController : entity_base
     //This runs once every physics frame
     void FixedUpdate()
     {
-        //Reduces cyote time in frames
+        //Reduces coyote time in frames
         if (grounded && rb.velocity.y <= 0)
         {
             coyoteTime = MaxCoyoteTime;
@@ -128,7 +129,7 @@ public class PlayerController : entity_base
         //While jump button is pressed and aceltime is still active make the y force equal to the jumpForce
         if (isJumping && accelTime > 0)
         {
-            rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)));
+            rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)), ForceMode2D.Impulse);
             accelTime -= 1;
         }
         //when button is realsed set accel time to 0
@@ -150,9 +151,9 @@ public class PlayerController : entity_base
         }
         
         //Friction logic
-        if (Mathf.Abs(rb.velocity.x) > 0 & math.abs(axis) == 0)
+        if (Mathf.Abs(rb.velocity.x) > 0 & axis == 0)
         {
-            rb.AddForce(new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1) * -(friction), 0));
+            rb.AddForce(new Vector2(Mathf.Clamp(rb.velocity.x, -1, 1) * -(grounded ? friction : airFriction), 0));
         }
 
 
