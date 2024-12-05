@@ -62,10 +62,12 @@ public class enemyFairy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         home = transform.position;
         cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime);
+        cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime+1);
         cycleAngle = Random.Range(0, Mathf.PI*2);
         wanderAngleTarget = Random.Range(0, Mathf.PI*2);
         wanderAngleCurrent = wanderAngleTarget;
         wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
+        wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
     }
 
     void FixedUpdate()
@@ -79,6 +81,7 @@ public class enemyFairy : MonoBehaviour
                 circlingAngleTarget = Random.Range(circlingAngleMin, circlingAngleMax);
                 circlingAngleCurrent = circlingAngleTarget;
                 circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime);
+                circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime+1);
             }
         } else {
             if (Mathf.Abs(distance.x) > calmXRange || distance.y > calmAboveRange || distance.y < -calmBelowRange) {
@@ -88,6 +91,7 @@ public class enemyFairy : MonoBehaviour
                 wanderAngleTarget = Random.Range(0, Mathf.PI*2);
                 wanderAngleCurrent = wanderAngleTarget;
                 wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
+                wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
             }
         }
 
@@ -102,6 +106,7 @@ public class enemyFairy : MonoBehaviour
         if (cycleReverseTime == 0) {
             cycleReversed = !cycleReversed;
             cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime);
+            cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime+1);
         }
 
         Vector2 cycleVector = new Vector2(Mathf.Cos(cycleAngle), Mathf.Sin(cycleAngle))*cycleWeight;
@@ -126,6 +131,7 @@ public class enemyFairy : MonoBehaviour
             if (wanderAngleTime == 0) {
                 wanderAngleTarget = Random.Range(0, Mathf.PI*2);
                 wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
+                wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
             }
 
             distanceVector = new Vector2(home.x-transform.position.x, home.y-transform.position.y)*homeSeekingWeight;
@@ -146,6 +152,7 @@ public class enemyFairy : MonoBehaviour
             if (circlingAngleTime == 0) {
                 circlingAngleTarget = Random.Range(circlingAngleMin, circlingAngleMax);
                 circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime);
+                circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime+1);
             }
 
             distanceVector = (distance.magnitude-preferredDistance)*distance.normalized*targetSeekingWeight;
