@@ -686,6 +686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221127592346605188, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_Name
       value: Fairy
@@ -705,6 +709,46 @@ PrefabInstance:
     - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: debug3
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstMax
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 4274392985334943230, guid: b042bfb41c613b147abf5a2c6381c5e6, type: 3}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstTimeMaxPer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstTimeMinPer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: projectileSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstTimeMaxBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstTimeMinBase
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: angerToBurstDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: burstProjectileDelay
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8623878971729792987, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_GravityScale

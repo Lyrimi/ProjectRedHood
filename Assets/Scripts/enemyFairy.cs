@@ -40,7 +40,19 @@ public class enemyFairy : MonoBehaviour
     public float wanderWeight;
     public float circlingWeight;
 
+    public GameObject projectile;
+    public float projectileSpeed;
+    public int burstProjectileDelay;
+    public int angerToBurstDelay;
+    public int burstMin;
+    public int burstMax;
+    public int burstTimeMinBase;
+    public int burstTimeMaxBase;
+    public int burstTimeMinPer;
+    public int burstTimeMaxPer;
+    
     Rigidbody2D rb;
+    Collider2D col;
     Boolean angry = false;
     Vector2 home;
 
@@ -55,18 +67,21 @@ public class enemyFairy : MonoBehaviour
     float circlingAngleCurrent;
     float circlingAngleTarget;
     float circlingAngleTime;
+    
+    int burstTime;
+    int burstSize;
+    int burstCurrentDelay;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         home = transform.position;
-        cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime);
         cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime+1);
         cycleAngle = Random.Range(0, Mathf.PI*2);
         wanderAngleTarget = Random.Range(0, Mathf.PI*2);
         wanderAngleCurrent = wanderAngleTarget;
-        wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
         wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
     }
 
@@ -80,8 +95,9 @@ public class enemyFairy : MonoBehaviour
 
                 circlingAngleTarget = Random.Range(circlingAngleMin, circlingAngleMax);
                 circlingAngleCurrent = circlingAngleTarget;
-                circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime);
                 circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime+1);
+                
+                burstTime = angerToBurstDelay;
             }
         } else {
             if (Mathf.Abs(distance.x) > calmXRange || distance.y > calmAboveRange || distance.y < -calmBelowRange) {
@@ -90,7 +106,6 @@ public class enemyFairy : MonoBehaviour
 
                 wanderAngleTarget = Random.Range(0, Mathf.PI*2);
                 wanderAngleCurrent = wanderAngleTarget;
-                wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
                 wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
             }
         }
@@ -105,7 +120,6 @@ public class enemyFairy : MonoBehaviour
         cycleReverseTime--;
         if (cycleReverseTime == 0) {
             cycleReversed = !cycleReversed;
-            cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime);
             cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime+1);
         }
 
@@ -130,13 +144,35 @@ public class enemyFairy : MonoBehaviour
             wanderAngleTime--;
             if (wanderAngleTime == 0) {
                 wanderAngleTarget = Random.Range(0, Mathf.PI*2);
-                wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
                 wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
             }
 
             distanceVector = new Vector2(home.x-transform.position.x, home.y-transform.position.y)*homeSeekingWeight;
             wanderVector = new Vector2(Mathf.Cos(wanderAngleCurrent), Mathf.Sin(wanderAngleCurrent))*wanderWeight;
         } else {
+            
+            if (burstSize > 0) {
+                if (burstCurrentDelay == 0) {
+                    burstSize--;
+                    if (burstSize > 0) {
+                        GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
+                        projectile.SendMessage("setDirection", distance.normalized*projectileSpeed);
+                        Physics2D.IgnoreCollision(col, projectile.GetComponent<Collider2D>());
+
+                        burstCurrentDelay = burstProjectileDelay;
+                    }
+                } else {
+                    burstCurrentDelay--;
+                }
+            } else {
+                if (burstTime == 0) {
+                    burstSize = Random.Range(burstMin, burstMax+1)+1;
+                    burstTime = Random.Range(burstTimeMinBase+burstTimeMinPer*burstSize, burstTimeMaxBase+burstTimeMaxPer*burstSize+1);
+                } else {
+                    burstTime--;
+                }
+            }
+
             if (circlingAngleCurrent != circlingAngleTarget) {
                 if (Mathf.Abs(circlingAngleTarget-circlingAngleCurrent) < circlingAngleChangeSpeed) {
                     circlingAngleCurrent = circlingAngleTarget;
@@ -151,7 +187,6 @@ public class enemyFairy : MonoBehaviour
             circlingAngleTime--;
             if (circlingAngleTime == 0) {
                 circlingAngleTarget = Random.Range(circlingAngleMin, circlingAngleMax);
-                circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime);
                 circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime+1);
             }
 
