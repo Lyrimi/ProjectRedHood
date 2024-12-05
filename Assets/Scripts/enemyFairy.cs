@@ -24,7 +24,6 @@ public class enemyFairy : MonoBehaviour
 
     public int wanderAngleMinTime;
     public int wanderAngleMaxTime;
-    public int wanderAngleTimeAngerDrop;
     public float wanderAngleChangeSpeed;
 
     public int circlingAngleMinTime;
@@ -77,12 +76,6 @@ public class enemyFairy : MonoBehaviour
                 angry = true;
                 sr.color = new Color(255, 0, 0);
 
-                wanderAngleTime -= wanderAngleTimeAngerDrop;
-                if (wanderAngleTime <= 0) {
-                    wanderAngleTarget = Random.Range(0, Mathf.PI*2);
-                    wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
-                }
-
                 circlingAngleTarget = Random.Range(circlingAngleMin, circlingAngleMax);
                 circlingAngleCurrent = circlingAngleTarget;
                 circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime);
@@ -91,6 +84,10 @@ public class enemyFairy : MonoBehaviour
             if (Mathf.Abs(distance.x) > calmXRange || distance.y > calmAboveRange || distance.y < -calmBelowRange) {
                 angry = false;
                 sr.color = new Color(255, 255, 255);
+
+                wanderAngleTarget = Random.Range(0, Mathf.PI*2);
+                wanderAngleCurrent = wanderAngleTarget;
+                wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime);
             }
         }
 
@@ -151,15 +148,7 @@ public class enemyFairy : MonoBehaviour
                 circlingAngleTime = Random.Range(circlingAngleMinTime, circlingAngleMaxTime);
             }
 
-            // ## Algebra! ##
-            // distance = d, distance.normalized = n, preferredDistance = p, distance.magnitude = m, targetSeekingWeight = t
-            // -n*(p-m)*t
-            // -d/m*(p-m)*t
-            // -d*(p/m-m/m)*t
-            // -d*(p/m-1)*t
-            // d*(1-p/m)*t
-            // (1-p/m)*d*t
-            distanceVector = (1-preferredDistance/distance.magnitude)*distance*targetSeekingWeight;
+            distanceVector = (distance.magnitude-preferredDistance)*distance.normalized*targetSeekingWeight;
             wanderVector = new Vector2(distance.y, -distance.x).normalized*circlingAngleDiff*Mathf.Sign(circlingAngleCurrentAngle)*circlingWeight;
         }
         rb.velocity = (cycleVector+distanceVector+wanderVector).normalized*speed;
