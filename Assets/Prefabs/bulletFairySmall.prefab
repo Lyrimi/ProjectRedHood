@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3110092094287088890}
   - component: {fileID: 717035213750545952}
   m_Layer: 8
-  m_Name: bulletFairySprite
+  m_Name: bulletFairySmallSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
