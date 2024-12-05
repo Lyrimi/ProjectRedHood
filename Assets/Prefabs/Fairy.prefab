@@ -133,7 +133,6 @@ MonoBehaviour:
   cycleAngleChange: 0.2
   wanderAngleMinTime: 30
   wanderAngleMaxTime: 80
-  wanderAngleTimeAngerDrop: 30
   wanderAngleChangeSpeed: 0.08
   circlingAngleMinTime: 20
   circlingAngleMaxTime: 80
