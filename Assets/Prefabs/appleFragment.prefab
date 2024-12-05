@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2176182667041572976}
   - component: {fileID: 131323033321180303}
   - component: {fileID: 137196136810412614}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: appleFragment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,16 +81,16 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6744043901830552827}
   - component: {fileID: 4763954007513073422}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: appleFragmentSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

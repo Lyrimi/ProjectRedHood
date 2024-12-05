@@ -11,6 +11,15 @@ public class projectileGingerbread : MonoBehaviour
     public float angularDrag;
     public float deflectionMultiplier;
     public float shrinkTime;
+
+    public int postHitLayer;
+    public LayerMask postHitCollisionInclude;
+    public LayerMask postHitCollisionExclude;
+    public LayerMask postHitForceSend;
+    public LayerMask postHitForceReceive;
+    public LayerMask postHitCollisionCaptures;
+    public LayerMask postHitCollisionCallbacks;
+
     Rigidbody2D rb;
     Vector2 originalScale;
     Boolean collided = false;
@@ -53,6 +62,15 @@ public class projectileGingerbread : MonoBehaviour
             rb.gravityScale = 1;
             rb.angularDrag = angularDrag;
             collisionTimestamp = Time.time;
+
+            Collider2D col = GetComponent<Collider2D>();
+            col.includeLayers = postHitCollisionInclude;
+            col.excludeLayers = postHitCollisionExclude;
+            col.forceSendLayers = postHitForceSend;
+            col.forceReceiveLayers = postHitForceReceive;
+            col.contactCaptureLayers = postHitCollisionCaptures;
+            col.callbackLayers = postHitCollisionCallbacks;
+            gameObject.layer = postHitLayer;
         }
     }
 

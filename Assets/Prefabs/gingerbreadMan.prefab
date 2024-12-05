@@ -133,13 +133,13 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -176,3 +176,22 @@ MonoBehaviour:
   angularDrag: 0.02
   deflectionMultiplier: 0.5
   shrinkTime: 2.5
+  postHitLayer: 9
+  postHitCollisionInclude:
+    serializedVersion: 2
+    m_Bits: 0
+  postHitCollisionExclude:
+    serializedVersion: 2
+    m_Bits: 0
+  postHitForceSend:
+    serializedVersion: 2
+    m_Bits: 0
+  postHitForceReceive:
+    serializedVersion: 2
+    m_Bits: 503
+  postHitCollisionCaptures:
+    serializedVersion: 2
+    m_Bits: 0
+  postHitCollisionCallbacks:
+    serializedVersion: 2
+    m_Bits: 0
