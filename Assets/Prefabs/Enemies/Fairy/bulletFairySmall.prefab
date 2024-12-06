@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4432361519324290689}
   m_Layer: 8
   m_Name: bulletFairySmall
-  m_TagString: Untagged
+  m_TagString: NotGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,3 +194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
+  ally: 0

@@ -47,26 +47,29 @@ public abstract class entity_base : MonoBehaviour
     //Ground detection
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
-        {
-            grounded = true;
+        if (!collision.gameObject.CompareTag("NotGround")) {
+            if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
+            {
+                grounded = true;
+            }
+            else if (collision.contacts[0].normal.y < -0.8f && gravity < 0)
+            {
+                grounded = true;
+            }
         }
-        else if (collision.contacts[0].normal.y < -0.8f && gravity < 0)
-        {
-            grounded = true;
-        }
-
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
-        {
-            grounded = true;
+        if (!collision.gameObject.CompareTag("NotGround")) {
+            if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
+            {
+                grounded = true;
             
-        }
-        else if (collision.contacts[0].normal.y < -0.8f && gravity < 0)
-        {
-            grounded = true;
+            }
+            else if (collision.contacts[0].normal.y < -0.8f && gravity < 0)
+            {
+                grounded = true;
+            }
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
