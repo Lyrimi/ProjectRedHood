@@ -451,6 +451,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8808307904901981902, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
+      propertyPath: debug
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808307904901981902, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
+      propertyPath: debug2
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808307904901981902, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
+      propertyPath: debug3
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808307904901981902, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
       propertyPath: direction.x
       value: -4.2
       objectReference: {fileID: 0}

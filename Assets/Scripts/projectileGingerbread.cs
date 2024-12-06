@@ -14,6 +14,7 @@ public class ProjectileGingerbread : ProjectileBase
     Rigidbody2D rb;
     bool collided;
     Vector2 contactNormal;
+    Vector2 contactRelVel;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +33,16 @@ public class ProjectileGingerbread : ProjectileBase
 
     void Update() {
         if (collided) {
-            float angle = 2*Mathf.Atan2(contactNormal.y, contactNormal.x)-Mathf.Atan2(direction.y, direction.x)+Mathf.PI;
-            Vector2 deflection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-            deflection *= direction.magnitude*deflectionMultiplier;
+            if (hitParticle != null) {
+                Vector2 incoming = -contactRelVel.normalized;
+                //See maths section in ProjectileApple for more information.
+                float a = -contactNormal.x*contactNormal.x+contactNormal.y*contactNormal.y;
+                float b = -2*contactNormal.x*contactNormal.y;
+                Vector2 deflection = new Vector2(a*incoming.x+b*incoming.y, -a*incoming.y+b*incoming.x)*contactRelVel.magnitude*deflectionMultiplier;
 
-            GameObject particle = Instantiate(hitParticle, transform.position, transform.rotation);
-            particle.GetComponent<Rigidbody2D>().velocity = deflection;
+                GameObject particle = Instantiate(hitParticle, transform.position, transform.rotation);
+                particle.GetComponent<Rigidbody2D>().velocity = deflection;
+            }
 
             Destroy(gameObject);
         }
@@ -47,6 +52,7 @@ public class ProjectileGingerbread : ProjectileBase
         if (!collided) {
             collided = true;
             contactNormal = collision.GetContact(0).normal;
+            contactRelVel = collision.relativeVelocity;
             GetComponent<Collider2D>().enabled = false;
             rb.simulated = false;
         }
