@@ -145,6 +145,7 @@ MonoBehaviour:
   targetSeekingWeight: 1.2
   wanderWeight: 0.75
   circlingWeight: 4
+  lowSpeedThreshold: 0.6
   projectile: {fileID: 4274392985334943230, guid: 6c79fe4f50f3aa640a77af9752b80516, type: 3}
   projectileSpeed: 7
   burstProjectileDelay: 4

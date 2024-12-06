@@ -59,6 +59,9 @@ public class enemyFairy : MonoBehaviour
     public float wanderWeight;
     public float circlingWeight;
 
+    //If the movement vector has a length below this threshold, it will not be scaled all the way to speed, but will be shorter, in order to prevent janky motion when the behaviour vectors almost cancel each other out completely.
+    public float lowSpeedThreshold;
+
     //Projectile related variables.
     //projectile is, surprisingly enough, the GameObject that the Fairy will fire as a projectile. The Fairy expects the projectile to have a SetDirection(Vector2 direction) function to set the direction it's fired at.
     public GameObject projectile;
@@ -291,9 +294,19 @@ public class enemyFairy : MonoBehaviour
             //The wander vector is calculated by taking the inverse distance vector rotated by 90 degrees and normalized, multiplying it with the difference in current angle and current desired angle, causing it to have the correct sign and a magnitude proportional to the distance between the current angle and the desired angle, and finally multiplying with the sign of the angle between the Fairy and its enemy, so the vector gets correctly mirrored if the Fairy is on the left-hand side of the enemy.
             wanderVector = new Vector2(distance.y, -distance.x).normalized*circlingAngleDiff*Mathf.Sign(circlingAngleCurrentAngle)*circlingWeight;
         }
-        //Finally, the vectors from the different behaviours are added together, normalized, and then multiplied by the speed value, to get a vector, with a length equal to speed, which points in a direction determined by the behaviours.
-        //The combined behaviour vectors is then directly set to be the Fairys velocity, which is not the way you are supposed to do it, but I don't know how to control AddForce well enough, and this works well enough.
+        //Finally, the vectors from the different behaviours are added together.
+        Vector2 finalVector = cycleVector+distanceVector+wanderVector;
+        //Now the final vector is supposed to be normalized, but if it's shorter than lowSpeedThreshold, it will instead be scaled to a smaller length than 1 instead, to prevent janky motion when the behaviour vectors almost cancel out to zero.
+        if (finalVector.magnitude < lowSpeedThreshold) {
+            finalVector /= lowSpeedThreshold;
+        } else {
+            //If it wasn't too short, just normalize it as normal.
+            finalVector = finalVector.normalized;
+        }
+        //Scale the final vector up by the speed value.
+        finalVector *= speed;
+        //The final scaled behaviour vector is then directly set to be the Fairys velocity, which is not the way you are supposed to do it, but I don't know how to control AddForce well enough, and this works well enough.
         //  This will make the Fairy react incorrectly to outside forces, but this likely wont be a problem in this project, and so it's not worth spending a lot of effort fixing. The only difference this is likely to really make, is that the Fairy wont be forced down correctly if something falls down on its head and pushes it down by gravity.
-        rb.velocity = (cycleVector+distanceVector+wanderVector).normalized*speed;
+        rb.velocity = finalVector;
     }
 }
