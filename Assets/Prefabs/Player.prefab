@@ -220,7 +220,7 @@ MonoBehaviour:
   MaxHealth: 3
   MaxHitFrames: 10
   MaxSpeed: 8
-  SpeedAcel: 45
+  SpeedAccel: 45
   friction: 70
   airFriction: 25
   MaxCoyoteTime: 3
