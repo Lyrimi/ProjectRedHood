@@ -150,23 +150,20 @@ public class enemyFairy : MonoBehaviour
             distanceVector = new Vector2(home.x-transform.position.x, home.y-transform.position.y)*homeSeekingWeight;
             wanderVector = new Vector2(Mathf.Cos(wanderAngleCurrent), Mathf.Sin(wanderAngleCurrent))*wanderWeight;
         } else {
-            
             if (burstSize > 0) {
                 if (burstCurrentDelay == 0) {
-                    burstSize--;
-                    if (burstSize > 0) {
-                        GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
-                        projectile.SendMessage("setDirection", distance.normalized*projectileSpeed);
-                        Physics2D.IgnoreCollision(col, projectile.GetComponent<Collider2D>());
+                    GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
+                    projectile.SendMessage("setDirection", distance.normalized*projectileSpeed);
+                    Physics2D.IgnoreCollision(col, projectile.GetComponent<Collider2D>());
 
-                        burstCurrentDelay = burstProjectileDelay;
-                    }
+                    burstCurrentDelay = burstProjectileDelay;
+                    burstSize--;
                 } else {
                     burstCurrentDelay--;
                 }
             } else {
                 if (burstTime == 0) {
-                    burstSize = Random.Range(burstMin, burstMax+1)+1;
+                    burstSize = Random.Range(burstMin, burstMax+1);
                     burstTime = Random.Range(burstTimeMinBase+burstTimeMinPer*burstSize, burstTimeMaxBase+burstTimeMaxPer*burstSize+1);
                 } else {
                     burstTime--;

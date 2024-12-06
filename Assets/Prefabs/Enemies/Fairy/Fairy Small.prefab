@@ -151,8 +151,8 @@ MonoBehaviour:
   angerToBurstDelay: 6
   burstMin: 4
   burstMax: 8
-  burstTimeMinBase: 18
-  burstTimeMaxBase: 22
+  burstTimeMinBase: 22
+  burstTimeMaxBase: 26
   burstTimeMinPer: 5
   burstTimeMaxPer: 6
 --- !u!1 &5525151977589174125
