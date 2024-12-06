@@ -41,6 +41,7 @@ public class PlayerController : entity_base
     Vector2 dashDir;
     bool isJumping;
     bool isDashing;
+    bool isFacingRight = true;
 
     private void OnEnable()
     {
@@ -170,10 +171,11 @@ public class PlayerController : entity_base
         //sprite Flip
         if (axis > 0)
         {
+            isFacingRight = true;
             spRend.flipX = false;
-        }
-        if (axis < 0)
+        } else if (axis < 0)
         {
+            isFacingRight = false;
             spRend.flipX = true;
         }
     }
@@ -182,7 +184,7 @@ public class PlayerController : entity_base
         if (isDashing && currentDashCooldown <= 0) 
         {
             dashTime = DashFrames;
-            dashDir = moveDir;
+            dashDir = new Vector2(isFacingRight ? 1 : -1, 0);
             currentDashCooldown = DashCooldown;
         }
         if (dashTime > 0) 
