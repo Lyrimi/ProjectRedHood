@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5969528149979706459
+--- !u!1 &6514292862139498523
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8834380219511751745}
-  - component: {fileID: 6397216905739895630}
-  - component: {fileID: 7764407450382788613}
-  - component: {fileID: 2307253652049276869}
-  - component: {fileID: 1084241204411734021}
-  m_Layer: 8
-  m_Name: gingerbreadMan
+  - component: {fileID: 7235697021628219899}
+  - component: {fileID: 4379772543902219952}
+  - component: {fileID: 6595352503351447241}
+  - component: {fileID: -298794372292615787}
+  - component: {fileID: 1054356519837644681}
+  m_Layer: 9
+  m_Name: gingerbreadManParticle
   m_TagString: NotGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8834380219511751745
+--- !u!4 &7235697021628219899
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969528149979706459}
+  m_GameObject: {fileID: 6514292862139498523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -35,13 +35,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6397216905739895630
+--- !u!212 &4379772543902219952
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969528149979706459}
+  m_GameObject: {fileID: 6514292862139498523}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,22 +87,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7764407450382788613
+--- !u!50 &6595352503351447241
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969528149979706459}
+  m_GameObject: {fileID: 6514292862139498523}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -114,13 +114,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!61 &2307253652049276869
+--- !u!61 &-298794372292615787
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969528149979706459}
+  m_GameObject: {fileID: 6514292862139498523}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -133,16 +133,16 @@ BoxCollider2D:
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   m_ForceReceiveLayers:
     serializedVersion: 2
     m_Bits: 503
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 247
+    m_Bits: 0
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -159,21 +159,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.45}
   m_EdgeRadius: 0
---- !u!114 &1084241204411734021
+--- !u!114 &1054356519837644681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5969528149979706459}
+  m_GameObject: {fileID: 6514292862139498523}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b06c2cf506c3be4dad1ff2f70b3a430, type: 3}
+  m_Script: {fileID: 11500000, guid: fedabce3dc6c6c946abe6d22ecc627bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 12, y: 0}
-  ally: 1
-  angularVel: 950
-  angularDrag: 0.02
-  deflectionMultiplier: 0.5
-  hitParticle: {fileID: 6514292862139498523, guid: 0986077d319149442a921001bd305c7b, type: 3}
+  shrinkTime: 2.5
