@@ -12,7 +12,7 @@ public class PlayerController : entity_base
     SpriteRenderer spRend;
     [Header("Horzontal Movment")]
     [SerializeField] private float MaxSpeed;
-    [SerializeField] private float SpeedAcel;
+    [SerializeField] private float SpeedAccel;
     [SerializeField] private float friction;
     [SerializeField] private float airFriction;
 
@@ -142,7 +142,7 @@ public class PlayerController : entity_base
     void HorizontalMove()
     {
         float axis = moveDir.x;
-        float x = axis * SpeedAcel;
+        float x = axis * SpeedAccel;
         //adds speed if the speed goes over speed maxspeed set speed to max speed
         //(unused) float veloshouldbe = rb.velocity.x + x;
         rb.AddForce(new Vector2(x, 0));

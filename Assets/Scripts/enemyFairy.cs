@@ -23,7 +23,7 @@ public class enemyFairy : MonoBehaviour
     public float calmAboveRange;
     public float calmBelowRange;
 
-    //Cycle behavior related variables.
+    //Cycle behaviour related variables.
     //cycleReverseMin/MaxTime control the min and the max time in frames between when the Fairy reverses cycling directions.
     public int cycleReverseMinTime;
     public int cycleReverseMaxTime;
@@ -88,7 +88,7 @@ public class enemyFairy : MonoBehaviour
     //The Fairys home. It will move towards this when calm.
     Vector2 home;
 
-    //Working values of the cycle behavior.
+    //Working values of the cycle behaviour.
     //cycleAngle is the current angle the cycling behaviour will move at.
     float cycleAngle;
     //cycleReversed stores whether the cycling is currently in the reversed direction.
@@ -127,14 +127,14 @@ public class enemyFairy : MonoBehaviour
         //Set home equal to spawn point.
         home = transform.position;
 
-        //Set up cycle behavior variables.
+        //Set up cycle behaviour variables.
         cycleReverseTime = Random.Range(cycleReverseMinTime, cycleReverseMaxTime+1);
         cycleAngle = Random.Range(0, Mathf.PI*2);
-        //Set up wander behavior variables.
+        //Set up wander behaviour variables.
         wanderAngleTarget = Random.Range(0, Mathf.PI*2);
         wanderAngleCurrent = wanderAngleTarget;
         wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
-        //Variables for the other behaviors don't need to be set up, as they either don't have variables that need to be set up, or are angry behaviors. Angry behaviors don't need to be set up at start, as the Fairy starts calm, and sets up the angry behavior variables when switching to angry anyway.
+        //Variables for the other behaviours don't need to be set up, as they either don't have variables that need to be set up, or are angry behaviours. Angry behaviours don't need to be set up at start, as the Fairy starts calm, and sets up the angry behaviour variables when switching to angry anyway.
     }
 
     void FixedUpdate()
