@@ -395,16 +395,12 @@ PrefabInstance:
       value: apple
       objectReference: {fileID: 0}
     - target: {fileID: 3313960484559669958, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3313960484559669958, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3386139171901677249, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
-      propertyPath: m_GravityScale
-      value: 1
+    - target: {fileID: 4261509125950454140, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6605354464455113651, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
       propertyPath: m_Layer
@@ -448,6 +444,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8792320283998288458, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808307904901981902, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
+      propertyPath: ally
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8808307904901981902, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
@@ -564,6 +564,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1084241204411734021, guid: f357ccd23707f424590d5497edb0b237, type: 3}
+      propertyPath: ally
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084241204411734021, guid: f357ccd23707f424590d5497edb0b237, type: 3}
       propertyPath: wait
       value: 4
       objectReference: {fileID: 0}
@@ -574,10 +578,6 @@ PrefabInstance:
     - target: {fileID: 5969528149979706459, guid: f357ccd23707f424590d5497edb0b237, type: 3}
       propertyPath: m_Name
       value: gingerbreadMan
-      objectReference: {fileID: 0}
-    - target: {fileID: 5969528149979706459, guid: f357ccd23707f424590d5497edb0b237, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5969528149979706459, guid: f357ccd23707f424590d5497edb0b237, type: 3}
       propertyPath: m_IsActive
