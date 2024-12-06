@@ -5,10 +5,9 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class apple : MonoBehaviour
+public class apple : projectileBase
 {
     public GameObject spriteObject;
-    public Vector2 direction;
     public GameObject fragmentObject;
     public int fragmentCount;
     public float deflectionMultiplier;
@@ -24,6 +23,7 @@ public class apple : MonoBehaviour
     {
         rb = (Rigidbody2D) GetComponent("Rigidbody2D");
         rb.velocity = direction;
+        handleIsAlly();
     }
 
     void Update() {
@@ -39,8 +39,7 @@ public class apple : MonoBehaviour
                     Vector2 vel = deflection*deflectionMultiplier*(1+Random.Range(-deflectionMultiplierRange, deflectionMultiplierRange));
                     float angle = Random.Range(-180, 180);
                     float scatterSpeed = Random.Range(minScatterSpeed, maxScatterSpeed);
-                    Rigidbody2D fragmentRb = ((Rigidbody2D) fragment.GetComponent("Rigidbody2D"));
-                    fragmentRb.velocity = new Vector2(Mathf.Cos(angle)*scatterSpeed, Mathf.Sin(angle)*scatterSpeed)+vel;
+                    fragment.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle)*scatterSpeed, Mathf.Sin(angle)*scatterSpeed)+vel;
                     /*colliders[i] = (Collider2D) fragment.GetComponent("Collider2D");
                     for (int o = 0; o < i; o++) {
                         Physics2D.IgnoreCollision(colliders[i], colliders[o]);
@@ -56,9 +55,5 @@ public class apple : MonoBehaviour
         if (this.collision == null) {
             this.collision = collision;
         }
-    }
-
-    void setDirection(Vector2 direction) {
-        this.direction = direction;
     }
 }

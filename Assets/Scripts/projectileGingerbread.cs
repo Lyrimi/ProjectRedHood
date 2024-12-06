@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class projectileGingerbread : MonoBehaviour
+public class projectileGingerbread : projectileBase
 {
-    public Vector2 direction;
     public float angularVel;
     public float angularDrag;
     public float deflectionMultiplier;
@@ -31,6 +30,7 @@ public class projectileGingerbread : MonoBehaviour
         rb = (Rigidbody2D) GetComponent("Rigidbody2D");
         rb.velocity = direction;
         rb.angularVelocity = angularVel;
+        handleIsAlly();
         originalScale = transform.localScale;
         transform.rotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-180, 180));
     }
@@ -72,9 +72,5 @@ public class projectileGingerbread : MonoBehaviour
             col.callbackLayers = postHitCollisionCallbacks;
             gameObject.layer = postHitLayer;
         }
-    }
-
-    public void setDirection(Vector2 direction) {
-        this.direction = direction;
     }
 }

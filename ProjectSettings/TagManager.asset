@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Entity
-  - Collidable
+  - Ally Entity
+  - Enemy Entity
   - Projectile
   - Particle
   - 

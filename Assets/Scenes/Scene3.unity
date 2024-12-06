@@ -824,25 +824,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 221127592346605188, guid: 71962722b2c08da418af17581cb94e30, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_Name
       value: Fairy
       objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 71962722b2c08da418af17581cb94e30, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770993054736247068, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5525151977589174125, guid: 71962722b2c08da418af17581cb94e30, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: debug
@@ -859,10 +847,6 @@ PrefabInstance:
     - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: debug3
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8623878971729792987, guid: 71962722b2c08da418af17581cb94e30, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8784511573933536112, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_LocalPosition.x

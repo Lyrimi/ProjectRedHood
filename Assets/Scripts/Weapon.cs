@@ -25,9 +25,9 @@ public class Weapon : MonoBehaviour
     }
     private void inputShoot()
     {
-        GameObject CurrentProjectile = Instantiate(projectile, transform.position, transform.rotation);
-        CurrentProjectile.SendMessage("setDirection",new Vector2(ProjectileSpeed*flipped, YSpeed));
-        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), CurrentProjectile.GetComponent<Collider2D>());
+        GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
+        projectile.SendMessage("setDirection", new Vector2(ProjectileSpeed*flipped, YSpeed));
+        projectile.SendMessage("setIsAlly", true);
     }
 
     void Start()

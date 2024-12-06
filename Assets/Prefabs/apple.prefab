@@ -77,7 +77,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -119,8 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db15a3a2e09e2674c91a6b02631f9176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteObject: {fileID: 6605354464455113651}
   direction: {x: -3, y: 3}
+  ally: 1
+  spriteObject: {fileID: 6605354464455113651}
   fragmentObject: {fileID: 4093209730701795106, guid: 0519fa582608c1a499ed737bff64ac8e, type: 3}
   fragmentCount: 8
   deflectionMultiplier: 0.8

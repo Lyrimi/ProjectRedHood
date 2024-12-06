@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 12, y: 0}
+  ally: 1
   angularVel: 950
   angularDrag: 0.02
   deflectionMultiplier: 0.5

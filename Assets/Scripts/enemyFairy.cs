@@ -63,7 +63,7 @@ public class enemyFairy : MonoBehaviour
     public float lowSpeedThreshold;
 
     //Projectile related variables.
-    //projectile is, surprisingly enough, the GameObject that the Fairy will fire as a projectile. The Fairy expects the projectile to have a SetDirection(Vector2 direction) function to set the direction it's fired at.
+    //projectile is, surprisingly enough, the GameObject that the Fairy will fire as a projectile. The Fairy expects the projectile to have a SetDirection(Vector2 direction) function to set the direction it's fired at, and a SetIsAlly(bool ally) function to set whether the projectile is fired by an ally (it's not).
     public GameObject projectile;
     //The speed at which the projectile is fired at.
     public float projectileSpeed;
@@ -236,12 +236,10 @@ public class enemyFairy : MonoBehaviour
                 if (burstCurrentDelay == 0) {
                     //Create a new instance of the projectile object.
                     GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
-                    //Set the projectiles launch direction and speed by taking the distance vector, which points from the fairy to its enemy, normalize it, and multiply it by the projectile speed.
+                    //Setup the projectile to be an enemy projectile, and set the launch direction and speed by taking the distance vector, which points from the fairy to its enemy, normalize it, and multiply it by the projectile speed.
                     projectile.SendMessage("setDirection", distance.normalized*projectileSpeed);
-                    //Make sure the projectile doesn't instantly collide with the fairy itself by making it ignore collision.
-                    //TODO Make fairy projectiles ignore all evil units, and remove this line, as it will be redundant.
-                    Physics2D.IgnoreCollision(col, projectile.GetComponent<Collider2D>());
-
+                    projectile.SendMessage("setIsAlly", false);
+                    
                     //Reset the time-between-shots-in-the-burst timer, and decrement the burst shots counter.
                     burstCurrentDelay = burstProjectileDelay;
                     burstSize--;
