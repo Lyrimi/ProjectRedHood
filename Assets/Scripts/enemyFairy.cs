@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class enemyFairy : MonoBehaviour
+public class EnemyFairy : MonoBehaviour
 {
     //The Fairys sprite renderer. The sprite renderer is, by default, on a different, dedicated object.
     public SpriteRenderer sr;

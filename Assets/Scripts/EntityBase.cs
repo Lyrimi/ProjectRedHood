@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class entity_base : MonoBehaviour
+public abstract class EntityBase : MonoBehaviour
 {
     internal Rigidbody2D rb;
     internal Renderer render;

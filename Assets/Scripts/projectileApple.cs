@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class apple : projectileBase
+public class ProjectileApple : ProjectileBase
 {
     public GameObject spriteObject;
     public GameObject fragmentObject;

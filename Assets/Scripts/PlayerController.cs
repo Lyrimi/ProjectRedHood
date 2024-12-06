@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerController : entity_base
+public class PlayerController : EntityBase
 {
     SpriteRenderer spRend;
     [Header("Horzontal Movment")]

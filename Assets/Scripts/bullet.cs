@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class bullet : projectileBase
+public class Bullet : ProjectileBase
 {
     // Start is called before the first frame update
     void Start()

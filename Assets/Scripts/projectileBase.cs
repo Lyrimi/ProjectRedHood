@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectileBase : MonoBehaviour
+public class ProjectileBase : MonoBehaviour
 {
     public Vector2 direction;
     public bool ally;

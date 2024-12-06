@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectileAppleFragment : MonoBehaviour {
+public class ProjectileAppleFragment : MonoBehaviour {
     public float shrinkTimeMin;
     public float shrinkTimeMax;
     public float shrinkBeginTime;

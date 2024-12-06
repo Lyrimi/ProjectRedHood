@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class cameraMovement : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
     float start_y;
     float start_z;

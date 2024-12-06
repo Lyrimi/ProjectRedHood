@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class projectileGingerbread : projectileBase
+public class ProjectileGingerbread : ProjectileBase
 {
     public float angularVel;
     public float angularDrag;
