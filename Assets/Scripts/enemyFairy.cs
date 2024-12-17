@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemyFairy : MonoBehaviour
+public class EnemyFairy : EntityBase
 {
     //The Fairys sprite renderer. The sprite renderer is, by default, on a different, dedicated object.
     public SpriteRenderer sr;
@@ -80,8 +80,6 @@ public class EnemyFairy : MonoBehaviour
     public int burstTimeMinPer;
     public int burstTimeMaxPer;
     
-    //Rigidbody and collider of the Fairy
-    Rigidbody2D rb;
     Collider2D col;
     //Whether the Fairy is angry. When it's angry, it will chase the target and fire at it, while, when it's calm, it will wander around near its home.
     Boolean angry = false;
