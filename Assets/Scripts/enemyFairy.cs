@@ -117,10 +117,10 @@ public class EnemyFairy : EntityBase
     int burstCurrentDelay;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        //Fetch rigidbody and collider.
-        rb = GetComponent<Rigidbody2D>();
+        base.Start();
+        //Fetch collider.
         col = GetComponent<Collider2D>();
         //Set home equal to spawn point.
         home = transform.position;

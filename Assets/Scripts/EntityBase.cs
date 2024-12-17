@@ -14,12 +14,11 @@ public abstract class EntityBase : MonoBehaviour
     internal int hitFrames;
 
     // Start is called before the first frame update
-    void Start()
+    internal void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         render = GetComponent<Renderer>();
         health = MaxHealth;
-
     }
 
     // Update is called once per frame

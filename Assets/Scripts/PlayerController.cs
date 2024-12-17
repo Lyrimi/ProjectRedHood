@@ -56,11 +56,10 @@ public class PlayerController : EntityBase
     
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
+        base.Start();
         //get components
-        rb = GetComponent<Rigidbody2D>();
-        render = GetComponent<Renderer>();
         spRend = GetComponent<SpriteRenderer>();
     }
 
