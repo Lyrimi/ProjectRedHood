@@ -38,6 +38,9 @@ public abstract class EntityBase : MonoBehaviour
     public void Damage(int damage) 
     {
         health -= damage;
+        if (health <= 0) {
+            Death();
+        }
     }
 
     public void DamageHitframes(int damage) 
@@ -46,7 +49,14 @@ public abstract class EntityBase : MonoBehaviour
         {
             health -= damage;
             hitFrames = MaxHitFrames;
+            if (health <= 0) {
+                Death();
+            }
         }
+    }
+
+    public void Death() {
+        Destroy(gameObject);
     }
 
     //Ground detection
