@@ -10,6 +10,7 @@ public class ProjectileGingerbread : ProjectileBase
     public float deflectionMultiplier;
 
     public GameObject hitParticle;
+    public int damage;
 
     Rigidbody2D rb;
     bool collided;
@@ -55,6 +56,11 @@ public class ProjectileGingerbread : ProjectileBase
             contactRelVel = collision.relativeVelocity;
             GetComponent<Collider2D>().enabled = false;
             rb.simulated = false;
+            GameObject victim = collision.collider.gameObject;
+            if (victim == gameObject) {
+                victim = collision.otherCollider.gameObject;
+            }
+            victim.SendMessage("Damage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
