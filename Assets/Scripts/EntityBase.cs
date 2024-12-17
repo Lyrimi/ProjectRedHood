@@ -36,11 +36,17 @@ public abstract class EntityBase : MonoBehaviour
         }
     }
 
-    public void damage(int damage) 
+    public void Damage(int damage) 
+    {
+        health -= damage;
+    }
+
+    public void DamageHitframes(int damage) 
     {
         if (hitFrames <= 0) 
         {
             health -= damage;
+            hitFrames = MaxHitFrames;
         }
     }
 
