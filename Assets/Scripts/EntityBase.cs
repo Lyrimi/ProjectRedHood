@@ -6,8 +6,8 @@ public abstract class EntityBase : MonoBehaviour
 {
     internal Rigidbody2D rb;
     internal Renderer render;
-    public int MaxHealth = 3;
-    public int MaxHitFrames;
+    public int MaxHealth = 36;
+    public int MaxHitFrames = 10;
     internal bool grounded;
     internal float gravity = 1f;
     internal int health;

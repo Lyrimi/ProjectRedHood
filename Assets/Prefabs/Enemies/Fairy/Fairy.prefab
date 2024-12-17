@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72942f990694cb849b7636c2672ef177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxHealth: 72
+  MaxHitFrames: 10
   sr: {fileID: 77542904080543508}
   enemy: {fileID: 0}
   speed: 4
