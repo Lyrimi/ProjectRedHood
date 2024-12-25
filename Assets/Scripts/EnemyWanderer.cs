@@ -30,15 +30,11 @@ public class EnemyWanderer : EntityBase
         float movement; 
         if (Mathf.Sign(rb.velocity.x) != (facingRight ? 1 : -1)) {
             movement = Mathf.Min(Math.Max(accel, brakeSpeed), Mathf.Abs(rb.velocity.x)+accel);
-            Debug.Log("a: "+Mathf.Abs(rb.velocity.x));
         } else if (Mathf.Abs(rb.velocity.x) > maxSpeed) {
             movement = -Mathf.Min(Mathf.Abs(rb.velocity.x), brakeSpeed);
-            Debug.Log("b: "+Mathf.Abs(rb.velocity.x));
         } else {
             movement = accel;
-            Debug.Log("c: "+accel);
         }
-        Debug.Log(movement);
         rb.AddForce(new Vector2(facingRight ? movement : -movement, 0));
     }
 
