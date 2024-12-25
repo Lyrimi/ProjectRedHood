@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9021758094230804228}
   - component: {fileID: 2313895389448533653}
   - component: {fileID: 4603899913968496539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyWanderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &4603899913968496539
 MonoBehaviour:
@@ -173,3 +173,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 36
   MaxHitFrames: 10
+  facingRight: 0
+  dropLimit: 0.2
+  dropDetectOffset: {x: 0.3, y: -0.495}
+  dropLayers:
+    serializedVersion: 2
+    m_Bits: 55
+  wallNormalMaxY: 0.2
+  accel: 16
+  maxSpeed: 2
+  brakeSpeed: 32
