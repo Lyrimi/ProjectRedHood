@@ -1219,7 +1219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewer: {fileID: 1170735631}
   message: {fileID: 1050201733}
-  messageOrigin: {x: 0, y: -2.7}
+  cam: {fileID: 1324561443}
+  messageOrigin: {x: 0, y: 0}
   messagePosition: {x: 0, y: 3.3}
   messageScale: {x: 1, y: 1}
   displaySpeed: 2.5
