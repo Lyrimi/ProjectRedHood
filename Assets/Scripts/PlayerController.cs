@@ -41,7 +41,7 @@ public class PlayerController : EntityBase
     Vector2 dashDir;
     bool isJumping;
     bool isDashing;
-    bool isFacingRight = true;
+    Animator anim;
 
     private void OnEnable()
     {
@@ -61,6 +61,7 @@ public class PlayerController : EntityBase
         base.Start();
         //get components
         spRend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -158,23 +159,14 @@ public class PlayerController : EntityBase
 
 
         //Animation State change
-        if (x != 0)
-        {
-            //anim.SetBool("Walking", true);
-        }
-        else
-        {
-            //anim.SetBool("Walking", false);
-        }
+        anim.SetFloat("xVelocty", math.abs(rb.velocity.x));
 
         //sprite Flip
         if (axis > 0)
         {
-            isFacingRight = true;
             spRend.flipX = false;
         } else if (axis < 0)
         {
-            isFacingRight = false;
             spRend.flipX = true;
         }
     }
@@ -183,7 +175,7 @@ public class PlayerController : EntityBase
         if (isDashing && currentDashCooldown <= 0) 
         {
             dashTime = DashFrames;
-            dashDir = new Vector2(isFacingRight ? 1 : -1, 0);
+            dashDir = new Vector2(spRend.flipX ? -1 : 1, 0);
             currentDashCooldown = DashCooldown;
         }
         if (dashTime > 0) 
