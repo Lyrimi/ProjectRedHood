@@ -180,6 +180,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   wallNormalMaxY: 0.2
+  wallCheckLayers:
+    serializedVersion: 2
+    m_Bits: 183
   accel: 16
   maxSpeed: 2
   brakeSpeed: 32

@@ -10,6 +10,7 @@ public class EnemyWanderer : EntityBase
     public Vector2 dropDetectOffset;
     public LayerMask dropLayers;
     public float wallNormalMaxY;
+    public LayerMask wallCheckLayers;
     public float accel;
     public float maxSpeed;
     public float brakeSpeed;
@@ -43,7 +44,13 @@ public class EnemyWanderer : EntityBase
         collision.GetContacts(contacts);
         foreach (ContactPoint2D contact in contacts) {
             if (Mathf.Abs(contact.normal.y) <= wallNormalMaxY) {
-                facingRight = contact.normal.x > 0;
+                GameObject other = contact.collider.gameObject;
+                if (other == gameObject) {
+                    other = contact.otherCollider.gameObject;
+                }
+                if ((wallCheckLayers.value&(1<<other.layer)) != 0) {
+                    facingRight = contact.normal.x > 0;
+                }
                 break;
             }
         }
