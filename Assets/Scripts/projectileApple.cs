@@ -14,6 +14,7 @@ public class ProjectileApple : ProjectileBase
     public float deflectionMultiplierRange;
     public float minScatterSpeed;
     public float maxScatterSpeed;
+    public int damage;
 
     Rigidbody2D rb;
     bool collided;
@@ -70,6 +71,11 @@ public class ProjectileApple : ProjectileBase
             contactRelVel = collision.relativeVelocity;
             GetComponent<Collider2D>().enabled = false;
             rb.simulated = false;
+            GameObject victim = collision.collider.gameObject;
+            if (victim == gameObject) {
+                victim = collision.otherCollider.gameObject;
+            }
+            victim.SendMessage("Damage", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }

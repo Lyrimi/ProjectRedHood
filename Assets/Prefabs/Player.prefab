@@ -245,4 +245,6 @@ MonoBehaviour:
   projectile: {fileID: 0}
   ProjectileSpeed: 0
   YSpeed: 0
+  windupFrames: 6
+  totalFrames: 18
   Input: {fileID: 3077627284087651250}
