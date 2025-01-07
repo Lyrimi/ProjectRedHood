@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 3077627284087651250}
   - component: {fileID: 4357966212924506230}
   - component: {fileID: 2789814212710948030}
+  - component: {fileID: -6733163890475601830}
   - component: {fileID: 8664950915269280085}
   m_Layer: 6
   m_Name: Player
@@ -238,16 +239,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292936599725026242}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 777e632a4d56c50439002399c231fc65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 5969528149979706459, guid: f357ccd23707f424590d5497edb0b237, type: 3}
+  ProjectileSpeed: 12
+  YSpeed: 0
+  windupFrames: 6
+  totalFrames: 18
+  Input: {fileID: 3077627284087651250}
+--- !u!114 &-6733163890475601830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292936599725026242}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 777e632a4d56c50439002399c231fc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
-  ProjectileSpeed: 0
-  YSpeed: 0
-  windupFrames: 6
-  totalFrames: 18
+  projectile: {fileID: 3313960484559669958, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
+  ProjectileSpeed: 7
+  YSpeed: 6
+  windupFrames: 20
+  totalFrames: 48
   Input: {fileID: 3077627284087651250}
 --- !u!95 &8664950915269280085
 Animator:
