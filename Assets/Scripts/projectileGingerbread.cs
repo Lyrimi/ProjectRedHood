@@ -12,10 +12,13 @@ public class ProjectileGingerbread : ProjectileBase
     public GameObject hitParticle;
     public int damage;
 
+    public float lifetime;
+
     Rigidbody2D rb;
     bool collided;
     Vector2 contactNormal;
     Vector2 contactRelVel;
+    float spawnTime;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +28,15 @@ public class ProjectileGingerbread : ProjectileBase
         rb.angularVelocity = angularVel;
         handleIsAlly();
         transform.rotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(-180, 180));
+        spawnTime = Time.time;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!collided && Time.fixedTime-spawnTime >= lifetime && lifetime != 0) {
+            Destroy(gameObject);
+        }
     }
 
     void Update() {

@@ -177,3 +177,4 @@ MonoBehaviour:
   deflectionMultiplier: 0.5
   hitParticle: {fileID: 6514292862139498523, guid: 0986077d319149442a921001bd305c7b, type: 3}
   damage: 12
+  lifetime: 4
