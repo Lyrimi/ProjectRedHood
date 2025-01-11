@@ -264,7 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3313960484559669958, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
   ProjectileSpeed: 7
-  YSpeed: 6
+  YSpeed: 8
   windupFrames: 20
   totalFrames: 48
   Input: {fileID: 3077627284087651250}
