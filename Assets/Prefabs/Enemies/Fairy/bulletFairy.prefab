@@ -196,3 +196,4 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   ally: 0
   damage: 6
+  lifetime: 10

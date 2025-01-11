@@ -8,13 +8,25 @@ public class Bullet : ProjectileBase
 {
     public int damage;
 
-    Boolean collided;
+    public float lifetime;
+    
+    float spawnTime;
+
+    bool collided;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = direction;
         handleIsAlly();
+        spawnTime = Time.time;
+    }
+
+    void FixedUpdate()
+    {
+        if (!collided && Time.fixedTime-spawnTime >= lifetime && lifetime != 0) {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
