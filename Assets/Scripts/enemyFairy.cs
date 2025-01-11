@@ -8,6 +8,8 @@ public class EnemyFairy : EntityBase
 {
     //The Fairys sprite renderer. The sprite renderer is, by default, on a different, dedicated object.
     public SpriteRenderer sr;
+    /*public bool enableAggroColor;*/
+    public float turnaroundThreshold;
     //The enemy of the Fairy. By default, it is supposed to be the player.
     public GameObject enemy;
 
@@ -145,7 +147,9 @@ public class EnemyFairy : EntityBase
             if (Mathf.Abs(distance.x) <= angerXRange && distance.y <= angerAboveRange && distance.y >= -angerBelowRange) {
                 angry = true;
                 //Change Fairy sprite to angry. Currently just colors the box red.
-                sr.color = new Color(255, 0, 0);
+                /*if (enableAggroColor) {
+                    sr.color = new Color(255, 0, 0);
+                }*/
 
                 //Set up circling behaviour related variables.
                 //Set the desired circling angle target to a random value in the range, and set the current desired circling angle to already be equal to it.
@@ -162,7 +166,9 @@ public class EnemyFairy : EntityBase
             if (Mathf.Abs(distance.x) > calmXRange || distance.y > calmAboveRange || distance.y < -calmBelowRange) {
                 angry = false;
                 //Change Fairy sprite to calm. Currently just colors the box white.
-                sr.color = new Color(255, 255, 255);
+                /*if (enableAggroColor) {
+                    sr.color = new Color(255, 255, 255);
+                }*/
 
                 //Set up wander behaviour related variables.
                 //The wander target angle is set to a random angle, and the current wander angle is set to already be equal to it.
@@ -304,5 +310,10 @@ public class EnemyFairy : EntityBase
         //The final scaled behaviour vector is then directly set to be the Fairys velocity, which is not the way you are supposed to do it, but I don't know how to control AddForce well enough, and this works well enough.
         //  This will make the Fairy react incorrectly to outside forces, but this likely wont be a problem in this project, and so it's not worth spending a lot of effort fixing. The only difference this is likely to really make, is that the Fairy wont be forced down correctly if something falls down on its head and pushes it down by gravity.
         rb.velocity = finalVector;
+
+        float side = distanceVector.x+wanderVector.x;
+        if (Mathf.Abs(side) >= turnaroundThreshold) {
+            sr.flipX = side < 0;
+        }
     }
 }

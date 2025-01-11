@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 014bbcf77c771ee4a9be6faca70a51c2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7114391709667715723, guid: 014bbcf77c771ee4a9be6faca70a51c2, type: 3}
       propertyPath: enemy
@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &749733069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6733163890475601830, guid: 6260db077a230dd418068959d37020f8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 408593073277110503, guid: 6260db077a230dd418068959d37020f8, type: 3}
       propertyPath: m_Layer
@@ -677,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2789814212710948030, guid: 6260db077a230dd418068959d37020f8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1367,7 +1367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 70864b14d9d38f845a655f65cfbe69ad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7114391709667715723, guid: 70864b14d9d38f845a655f65cfbe69ad, type: 3}
       propertyPath: enemy
@@ -1432,7 +1432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2096547463962925949, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3813535495521058539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1493,7 +1493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: debug
