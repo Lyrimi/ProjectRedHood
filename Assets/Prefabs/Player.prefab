@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 8664950915269280085}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33e5c5d03339a44690bfcd6c645ac21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 36
-  MaxHitFrames: 10
+  MaxHealth: 3
+  MaxHitFrames: 60
   MaxSpeed: 8
   SpeedAccel: 45
   friction: 70
@@ -230,7 +230,7 @@ MonoBehaviour:
   jumpForce: 8
   DashVelocity: 50
   DashFrames: 5
-  DashCooldown: 1.2
+  DashCooldown: 1.5
   Input: {fileID: 3077627284087651250}
 --- !u!114 &2789814212710948030
 MonoBehaviour:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public abstract class EntityBase : MonoBehaviour
 {
@@ -27,11 +28,11 @@ public abstract class EntityBase : MonoBehaviour
         
     }
     //physics update
-    private void FixedUpdate()
+    internal void FixedUpdate()
     {
-        if (hitFrames > 0) 
+        if (hitFrames > 0)
         {
-            hitFrames--;
+            hitFrames = hitFrames - 1;
         }
     }
 
@@ -39,7 +40,7 @@ public abstract class EntityBase : MonoBehaviour
     {
         health -= damage;
         if (health <= 0) {
-            Death();
+            gameObject.SendMessage("Death", damage);
         }
     }
 
@@ -47,11 +48,10 @@ public abstract class EntityBase : MonoBehaviour
     {
         if (hitFrames <= 0) 
         {
-            health -= damage;
+            //this is dumb
+            gameObject.SendMessage("Damage", damage);
             hitFrames = MaxHitFrames;
-            if (health <= 0) {
-                Death();
-            }
+            StartCoroutine(hitcolor(MaxHitFrames));
         }
     }
 
@@ -90,5 +90,19 @@ public abstract class EntityBase : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
+    }
+    IEnumerator hitcolor (int imuntyframes)
+    {
+        render.material.SetColor("_Color", Color.red);
+        yield return StartCoroutine(WaitForFixedFrames(imuntyframes));
+        render.material.SetColor("_Color", Color.white);
+    }
+
+    IEnumerator WaitForFixedFrames(int frames)
+    {
+        for (int i = 0; i < frames; i++)
+        {
+            yield return new WaitForFixedUpdate();
+        }
     }
 }

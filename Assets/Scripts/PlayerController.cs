@@ -6,6 +6,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEditor.UI;
+using UnityEngine.UI;
 
 public class PlayerController : EntityBase
 {
@@ -30,6 +32,14 @@ public class PlayerController : EntityBase
     [Header("Input")]
     [SerializeField] private InputManager Input;
 
+    [Header("Heart system")]
+    public Image[] hearts;
+    public Sprite normalHeart;
+    public Sprite damagedheart;
+    [Header("Other settings")]
+    [Tooltip("secounds")] 
+    public float hitStoptime;
+    public HitStop hitstop;
     
 
     int coyoteTime;
@@ -99,8 +109,9 @@ public class PlayerController : EntityBase
         if (currentDashCooldown < 0) { currentDashCooldown = 0; }
     }
     //This runs once every physics frame
-    void FixedUpdate()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         //Reduces coyote time in frames
         if (grounded && rb.velocity.y <= 0)
         {
@@ -183,5 +194,18 @@ public class PlayerController : EntityBase
             rb.velocity = new Vector2(dashDir.x * DashVelocity, 0);
             dashTime -= 1;
         }
+    }
+    public new void Damage(int damage)
+    {
+        base.Damage(damage);
+        if (health >= 0)
+        {
+            hearts[health].sprite = damagedheart;
+        }
+        hitstop.Stop(hitStoptime);
+    }
+    public new void Death()
+    {
+        Debug.Log("i died");
     }
 }
