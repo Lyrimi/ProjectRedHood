@@ -12,7 +12,7 @@ public abstract class EntityBase : MonoBehaviour
     internal bool grounded;
     internal float gravity = 1f;
     internal int health;
-    internal int hitFrames;
+    internal bool hashitFrames = false;
 
     // Start is called before the first frame update
     internal void Start()
@@ -27,14 +27,7 @@ public abstract class EntityBase : MonoBehaviour
     {
         
     }
-    //physics update
-    internal void FixedUpdate()
-    {
-        if (hitFrames > 0)
-        {
-            hitFrames = hitFrames - 1;
-        }
-    }
+    
 
     public void Damage(int damage) 
     {
@@ -46,11 +39,10 @@ public abstract class EntityBase : MonoBehaviour
 
     public void DamageHitframes(int damage) 
     {
-        if (hitFrames <= 0) 
+        if (hashitFrames == false) 
         {
             //this is dumb
             gameObject.SendMessage("Damage", damage);
-            hitFrames = MaxHitFrames;
             StartCoroutine(hitcolor(MaxHitFrames));
         }
     }
@@ -93,9 +85,11 @@ public abstract class EntityBase : MonoBehaviour
     }
     IEnumerator hitcolor (int imuntyframes)
     {
+        hashitFrames = true;
         render.material.SetColor("_Color", Color.red);
         yield return StartCoroutine(WaitForFixedFrames(imuntyframes));
         render.material.SetColor("_Color", Color.white);
+        hashitFrames = false;
     }
 
     IEnumerator WaitForFixedFrames(int frames)
