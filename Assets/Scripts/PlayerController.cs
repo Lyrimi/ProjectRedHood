@@ -46,6 +46,7 @@ public class PlayerController : EntityBase
     int accelTime;
     int dashTime;
     float currentDashCooldown;
+    int displayHearts;
 
     Vector2 moveDir;
     Vector2 dashDir;
@@ -72,6 +73,8 @@ public class PlayerController : EntityBase
         //get components
         spRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        displayHearts = hearts.Length;
     }
 
 
@@ -197,9 +200,13 @@ public class PlayerController : EntityBase
     public new void Damage(int damage)
     {
         base.Damage(damage);
-        if (health >= 0)
+        int currHearts = displayHearts;
+        displayHearts = (int) Mathf.Ceil((float) health/MaxHealth*hearts.Length);
+        if (displayHearts < currHearts)
         {
-            hearts[health].sprite = damagedheart;
+            for (int i = currHearts; i > displayHearts && i > 0; i--) {
+                hearts[i-1].sprite = damagedheart;
+            }
         }
         hitstop.Stop(hitStoptime);
     }

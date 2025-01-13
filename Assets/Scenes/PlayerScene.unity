@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793b21c4ced2e9d4f893203b0347b292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 12
 --- !u!212 &79382936
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -541,7 +542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1557da3bf8e171746b15dd312ec03a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spike: {fileID: 5619517388982461510, guid: 908357e879a75674d9173cbdee06801e, type: 3}
 --- !u!1 &1126745213
 GameObject:
   m_ObjectHideFlags: 0
