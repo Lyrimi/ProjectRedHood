@@ -11,17 +11,20 @@ public class Wolf : EntityBase
     public GameObject Slash;
     public Transform SlashSpawnpoint;
     Animator anim;
+    public Healthbar healthbar;
    // Start is called before the first frame update
     new void Start()
     {
         base.Start();
         anim = GetComponent<Animator>();
+        healthbar.SetMaxHealth(MaxHealth);
+        healthbar.Sethealth(MaxHealth);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        healthbar.Sethealth(health);
     }
 
     public void summonSlash()
@@ -43,5 +46,11 @@ public class Wolf : EntityBase
     public void SetWait(float waitime)
     {
         StartCoroutine(AnimatorWait(waitime));
+    }
+
+    public new void Death()
+    {
+        Destroy(healthbar.gameObject);
+        base.Death();
     }
 }
