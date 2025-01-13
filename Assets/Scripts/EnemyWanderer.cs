@@ -57,6 +57,7 @@ public class EnemyWanderer : EntityBase
             foreach (ContactPoint2D contact in contacts) {
                 if (Mathf.Abs(contact.normal.y) <= wallNormalMaxY) {
                     facingRight = contact.normal.x > 0;
+                    sr.flipX = !facingRight;
                 }
                 break;
             }

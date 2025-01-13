@@ -69,6 +69,8 @@ public class EnemyFairy : EntityBase
     public GameObject projectile;
     //The speed at which the projectile is fired at.
     public float projectileSpeed;
+    //How much of a boost to the speed on the X-coordinate to give to the projectile.
+    public float projectileXBoost;
     //The delay between shots in a burst of shots.
     public int burstProjectileDelay;
     //The time from the Fairy getting angry 'til its first projectile burst.
@@ -241,7 +243,7 @@ public class EnemyFairy : EntityBase
                     //Create a new instance of the projectile object.
                     GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
                     //Setup the projectile to be an enemy projectile, and set the launch direction and speed by taking the distance vector, which points from the fairy to its enemy, normalize it, and multiply it by the projectile speed.
-                    projectile.SendMessage("setDirection", distance.normalized*projectileSpeed);
+                    projectile.SendMessage("setDirection", distance.normalized*projectileSpeed+Vector2.right*(distance.x < 0 ? -1 : 1)*projectileXBoost);
                     projectile.SendMessage("setIsAlly", false);
                     
                     //Reset the time-between-shots-in-the-burst timer, and decrement the burst shots counter.
