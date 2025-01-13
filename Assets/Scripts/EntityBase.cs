@@ -65,7 +65,7 @@ public abstract class EntityBase : MonoBehaviour
             }
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    protected void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("NotGround")) {
             if (collision.contacts[0].normal.y > 0.8f && gravity > 0)
