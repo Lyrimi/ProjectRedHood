@@ -57,6 +57,7 @@ public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput
     public event Action ResumeEvent;
 
     public event Action ShootEvent;
+    public event Action Shoot2Event;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -92,6 +93,13 @@ public class InputManager : MonoBehaviour, GameInput.IGamePlayActions, GameInput
         if (context.started)
         {
             ShootEvent?.Invoke();
+        } 
+    }
+    public void OnShoot2(InputAction.CallbackContext context) 
+    {
+        if (context.started)
+        {
+            Shoot2Event?.Invoke();
         } 
     }
     public void OnPause(InputAction.CallbackContext context) 

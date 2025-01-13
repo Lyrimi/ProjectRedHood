@@ -46,6 +46,10 @@ public class PlayerController : EntityBase
     int accelTime;
     int dashTime;
     float currentDashCooldown;
+    int displayHearts;
+    
+    //Visible in the editor; janky.
+    public int throwDelay;
 
     Vector2 moveDir;
     Vector2 dashDir;
@@ -72,6 +76,8 @@ public class PlayerController : EntityBase
         //get components
         spRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        displayHearts = hearts.Length;
     }
 
 
@@ -120,6 +126,10 @@ public class PlayerController : EntityBase
         {
             coyoteTime -= 1;
         }
+        
+        if (throwDelay > 0) {
+            throwDelay--;
+        }
 
         // These call the functions in charge of moving the player
         jumpMove();
@@ -132,18 +142,18 @@ public class PlayerController : EntityBase
         //gets button and checks coyotetime
         if (isJumping && coyoteTime > 0)
         {
-            //sets accel time for the maxmium time the force of the jump can be apllied
+            //sets accel time for the maximum time the force of the jump can be applied
             accelTime = JumpAccelTime;
             coyoteTime = 0;
             rb.AddForce(new Vector2(0, jumpForce));
         }
-        //While jump button is pressed and aceltime is still active make the y force equal to the jumpForce
+        //While jump button is pressed and acceltime is still active make the y force equal to the jumpForce
         if (isJumping && accelTime > 0)
         {
             rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)), ForceMode2D.Impulse);
             accelTime -= 1;
         }
-        //when button is realsed set accel time to 0
+        //when button is released set accel time to 0
         else
         {
             accelTime = 0;
@@ -197,9 +207,13 @@ public class PlayerController : EntityBase
     public new void Damage(int damage)
     {
         base.Damage(damage);
-        if (health >= 0)
+        int currHearts = displayHearts;
+        displayHearts = (int) Mathf.Ceil((float) health/MaxHealth*hearts.Length);
+        if (displayHearts < currHearts)
         {
-            hearts[health].sprite = damagedheart;
+            for (int i = currHearts; i > displayHearts && i > 0; i--) {
+                hearts[i-1].sprite = damagedheart;
+            }
         }
         hitstop.Stop(hitStoptime);
     }
