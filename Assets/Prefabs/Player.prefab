@@ -241,6 +241,7 @@ MonoBehaviour:
   damagedheart: {fileID: 4631785692960583900, guid: add3ebc26f47cec40ae6590ffac4fc94, type: 3}
   hitStoptime: 0.1
   hitstop: {fileID: 3013178304912971375}
+  throwDelay: 0
 --- !u!114 &2789814212710948030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,11 +254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777e632a4d56c50439002399c231fc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4357966212924506230}
   projectile: {fileID: 5969528149979706459, guid: f357ccd23707f424590d5497edb0b237, type: 3}
   ProjectileSpeed: 12
   YSpeed: 0
-  windupFrames: 6
-  totalFrames: 18
+  throwCooldown: 18
   key2: 1
   Input: {fileID: 3077627284087651250}
 --- !u!114 &-6733163890475601830
@@ -272,11 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 777e632a4d56c50439002399c231fc65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4357966212924506230}
   projectile: {fileID: 3313960484559669958, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
   ProjectileSpeed: 7
   YSpeed: 8
-  windupFrames: 20
-  totalFrames: 48
+  throwCooldown: 48
   key2: 0
   Input: {fileID: 3077627284087651250}
 --- !u!95 &8664950915269280085

@@ -47,6 +47,9 @@ public class PlayerController : EntityBase
     int dashTime;
     float currentDashCooldown;
     int displayHearts;
+    
+    //Visible in the editor; janky.
+    public int throwDelay;
 
     Vector2 moveDir;
     Vector2 dashDir;
@@ -122,6 +125,10 @@ public class PlayerController : EntityBase
         else if (coyoteTime > 0) 
         {
             coyoteTime -= 1;
+        }
+        
+        if (throwDelay > 0) {
+            throwDelay--;
         }
 
         // These call the functions in charge of moving the player

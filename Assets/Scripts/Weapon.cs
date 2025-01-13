@@ -8,19 +8,18 @@ using UnityEngine.PlayerLoop;
 
 public class Weapon : MonoBehaviour
 {
+    public PlayerController player;
+
     SpriteRenderer spRend;
     [Header("Projectile")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float ProjectileSpeed;
     [SerializeField] private float YSpeed;
-    public int windupFrames;
-    public int totalFrames;
+    public int throwCooldown;
     public bool key2;
 
     [Header("Input")]
     [SerializeField] private InputManager Input;
-    bool flipped;
-    int delay = 0;
 
     // Start is called before the first frame update
     private void OnEnable()
@@ -33,32 +32,16 @@ public class Weapon : MonoBehaviour
         }
     }
     private void inputShoot() {
-        if (delay == 0) {
-            delay = totalFrames;
-            flipped = spRend.flipX;
-            if (windupFrames == 0) {
-                fireProjectile();
-            }
+        if (player.throwDelay == 0) {
+            player.throwDelay = throwCooldown;
+            GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
+            projectile.SendMessage("setDirection", new Vector2(ProjectileSpeed*(spRend.flipX?-1:1), YSpeed));
+            projectile.SendMessage("setIsAlly", true);
         }
     }
 
     void Start()
     {
         spRend = GetComponent<SpriteRenderer>();
-    }
-
-    void FixedUpdate() {
-        if (delay > 0) {
-            delay--;
-            if (delay == totalFrames-windupFrames && windupFrames != 0) {
-                fireProjectile();
-            }
-        }
-    }
-
-    void fireProjectile() {
-        GameObject projectile = Instantiate(this.projectile, transform.position, transform.rotation);
-        projectile.SendMessage("setDirection", new Vector2(ProjectileSpeed*(flipped?-1:1), YSpeed));
-        projectile.SendMessage("setIsAlly", true);
     }
 }
