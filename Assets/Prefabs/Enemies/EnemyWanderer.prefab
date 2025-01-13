@@ -119,10 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65515b3e884fa04481ecbf5de6b8a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 36
+  MaxHealth: 48
   MaxHitFrames: 10
   enemy: {fileID: 0}
   damage: 12
+  sr: {fileID: 8019101467341440891}
   facingRight: 0
   dropLimit: 0.2
   dropDetectOffset: {x: 0.3, y: -0.495}

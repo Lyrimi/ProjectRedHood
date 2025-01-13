@@ -258,7 +258,7 @@ MonoBehaviour:
   projectile: {fileID: 5969528149979706459, guid: f357ccd23707f424590d5497edb0b237, type: 3}
   ProjectileSpeed: 12
   YSpeed: 0
-  throwCooldown: 18
+  throwCooldown: 16
   key2: 1
   Input: {fileID: 3077627284087651250}
 --- !u!114 &-6733163890475601830
@@ -276,8 +276,8 @@ MonoBehaviour:
   player: {fileID: 4357966212924506230}
   projectile: {fileID: 3313960484559669958, guid: fb2d345fe3940c740a22adbefe64b6fc, type: 3}
   ProjectileSpeed: 7
-  YSpeed: 8
-  throwCooldown: 48
+  YSpeed: 8.5
+  throwCooldown: 42
   key2: 0
   Input: {fileID: 3077627284087651250}
 --- !u!95 &8664950915269280085

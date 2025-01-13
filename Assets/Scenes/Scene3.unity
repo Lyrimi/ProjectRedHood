@@ -615,11 +615,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &760379088 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8019101467341440891, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
-  m_PrefabInstance: {fileID: 997731718715564608}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &824472165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1871,10 +1866,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWanderer Sprite
       objectReference: {fileID: 0}
-    - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
-      propertyPath: sr
-      value: 
-      objectReference: {fileID: 760379088}
     - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: enemy
       value: 
