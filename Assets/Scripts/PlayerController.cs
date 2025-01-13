@@ -132,18 +132,18 @@ public class PlayerController : EntityBase
         //gets button and checks coyotetime
         if (isJumping && coyoteTime > 0)
         {
-            //sets accel time for the maxmium time the force of the jump can be apllied
+            //sets accel time for the maximum time the force of the jump can be applied
             accelTime = JumpAccelTime;
             coyoteTime = 0;
             rb.AddForce(new Vector2(0, jumpForce));
         }
-        //While jump button is pressed and aceltime is still active make the y force equal to the jumpForce
+        //While jump button is pressed and acceltime is still active make the y force equal to the jumpForce
         if (isJumping && accelTime > 0)
         {
             rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)), ForceMode2D.Impulse);
             accelTime -= 1;
         }
-        //when button is realsed set accel time to 0
+        //when button is released set accel time to 0
         else
         {
             accelTime = 0;
