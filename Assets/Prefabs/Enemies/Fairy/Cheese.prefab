@@ -105,7 +105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.45, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &8808307904901981902
 MonoBehaviour:
@@ -123,7 +123,7 @@ MonoBehaviour:
   ally: 1
   spriteObject: {fileID: 6605354464455113651}
   fragmentObject: {fileID: 4093209730701795106, guid: edfd757716ae28a47bce9333b7ac6eda, type: 3}
-  fragmentCount: 4
+  fragmentCount: 5
   deflectionMultiplier: 0.3
   deflectionMultiplierRange: 0.08
   minScatterSpeed: 0.3
@@ -155,8 +155,8 @@ Transform:
   m_GameObject: {fileID: 6605354464455113651}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.03125, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8792320283998288458}
@@ -202,7 +202,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bce20228e0ef9614db474416db6859f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb789f96d5786744a89ef1ba78b793e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
