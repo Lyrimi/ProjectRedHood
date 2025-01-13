@@ -19,6 +19,9 @@ public class DamageZone : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.gameObject.SendMessage("DamageHitframes", damage);
+        if (collision.CompareTag("Player"))
+        {
+            collision.gameObject.SendMessage("DamageHitframes", 12);
+        }
     }
 }

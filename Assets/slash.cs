@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -5,24 +6,36 @@ using UnityEngine;
 
 public class slash : MonoBehaviour
 {
+    IEnumerator Expire(float delay)
+    {
+        Debug.Log("waiting");
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Smited");
+        Destroy(gameObject);
+        Destroy(this);
+    }
     public float speed;
-    Rigidbody rb;
+    Rigidbody2D rb;
+    public float lifetime;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(speed,0,0);
-        rb.mass = 0;
+        rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(Expire(lifetime));
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        rb.velocity = new Vector2(speed, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.SendMessage("DamageHitframes", 12);
+        if (collision.CompareTag("Player"))
+        {
+            collision.gameObject.SendMessage("DamageHitframes", 12);
+        }
     }
+    
 }

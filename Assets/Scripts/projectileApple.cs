@@ -75,7 +75,7 @@ public class ProjectileApple : ProjectileBase
             if (victim == gameObject) {
                 victim = collision.otherCollider.gameObject;
             }
-            victim.SendMessage("Damage", damage, SendMessageOptions.DontRequireReceiver);
+            victim.SendMessage("DamageHitframes", damage, SendMessageOptions.DontRequireReceiver);
         }
     }
 }
