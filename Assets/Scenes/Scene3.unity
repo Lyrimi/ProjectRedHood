@@ -1824,19 +1824,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2096547463962925949, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_Name
-      value: EnemyWanderer
+      value: Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 2096547463962925949, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2313895389448533653, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
-      propertyPath: m_Size.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2313895389448533653, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 3813535495521058539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1864,12 +1856,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3862371662951526329, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_Name
-      value: EnemyWanderer Sprite
+      value: Mushroom Sprite
       objectReference: {fileID: 0}
     - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1170735631}
+    - target: {fileID: 8019101467341440891, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
