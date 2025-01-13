@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292936599725026242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 777e632a4d56c50439002399c231fc65, type: 3}
   m_Name: 
@@ -258,6 +258,7 @@ MonoBehaviour:
   YSpeed: 0
   windupFrames: 6
   totalFrames: 18
+  key2: 1
   Input: {fileID: 3077627284087651250}
 --- !u!114 &-6733163890475601830
 MonoBehaviour:
@@ -276,6 +277,7 @@ MonoBehaviour:
   YSpeed: 8
   windupFrames: 20
   totalFrames: 48
+  key2: 0
   Input: {fileID: 3077627284087651250}
 --- !u!95 &8664950915269280085
 Animator:

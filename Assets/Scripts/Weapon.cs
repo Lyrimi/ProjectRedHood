@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float YSpeed;
     public int windupFrames;
     public int totalFrames;
+    public bool key2;
 
     [Header("Input")]
     [SerializeField] private InputManager Input;
@@ -25,7 +26,11 @@ public class Weapon : MonoBehaviour
     private void OnEnable()
     {
         //Subscribes the event functions to the functions in this script
-        Input.ShootEvent += inputShoot;
+        if (key2) {
+            Input.Shoot2Event += inputShoot;
+        } else {
+            Input.ShootEvent += inputShoot;
+        }
     }
     private void inputShoot() {
         if (delay == 0) {
