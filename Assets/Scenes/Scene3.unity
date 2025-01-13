@@ -413,6 +413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom Spooky
       objectReference: {fileID: 0}
+    - target: {fileID: 2096547463962925949, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
@@ -571,7 +575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &749733069
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -684,6 +688,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &796217760
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1691240269668440732, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1170735631}
+    - target: {fileID: 1770993054736247068, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_Name
+      value: Fairy Rat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5525151977589174125, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_Name
+      value: Fairy Rat Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1170735631}
+    - target: {fileID: 8784511573933536112, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784511573933536112, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784511573933536112, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784511573933536112, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784511573933536112, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784511573933536112, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
 --- !u!1001 &824472165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2031,3 +2088,4 @@ SceneRoots:
   - {fileID: 1050201737}
   - {fileID: 1283474129}
   - {fileID: 436313892}
+  - {fileID: 796217760}
