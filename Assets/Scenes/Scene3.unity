@@ -401,6 +401,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &436313892
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2096547463962925949, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_Name
+      value: Mushroom Spooky
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813535495521058539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862371662951526329, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_Name
+      value: Mushroom Spooky Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1170735631}
+    - target: {fileID: 8866969283697986329, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.015625
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
 --- !u!1 &494513684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2096547463962925949, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3813535495521058539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1862,10 +1931,6 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1170735631}
-    - target: {fileID: 8019101467341440891, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1965,3 +2030,4 @@ SceneRoots:
   - {fileID: 1942498017}
   - {fileID: 1050201737}
   - {fileID: 1283474129}
+  - {fileID: 436313892}

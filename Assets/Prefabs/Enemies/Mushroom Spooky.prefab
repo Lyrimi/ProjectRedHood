@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2313895389448533653}
   - component: {fileID: 4603899913968496539}
   m_Layer: 7
-  m_Name: Mushroom
+  m_Name: Mushroom Spooky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,7 +105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.2}
+  m_Size: {x: 1.4, y: 1.25}
   m_EdgeRadius: 0
 --- !u!114 &4603899913968496539
 MonoBehaviour:
@@ -119,14 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65515b3e884fa04481ecbf5de6b8a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 48
+  MaxHealth: 96
   MaxHitFrames: 10
   enemy: {fileID: 0}
-  damage: 12
+  damage: 24
   sr: {fileID: 8019101467341440891}
   facingRight: 0
   dropLimit: 0.2
-  dropDetectOffset: {x: 0.35, y: -0.595}
+  dropDetectOffset: {x: 0.68, y: -0.62}
   dropLayers:
     serializedVersion: 2
     m_Bits: 55
@@ -134,9 +134,9 @@ MonoBehaviour:
   wallCheckLayers:
     serializedVersion: 2
     m_Bits: 183
-  accel: 16
-  maxSpeed: 2
-  brakeSpeed: 32
+  accel: 12
+  maxSpeed: 5
+  brakeSpeed: 64
 --- !u!1 &3862371662951526329
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,12 +210,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 109980a44dbd35a4ebe049267f9f4d00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 114583b6889a6f4488479c26b8425b36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
