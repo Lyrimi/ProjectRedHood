@@ -154,8 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 548286998}
-  yNoMoveCam: 1.5
-  xNoMoveCam: 3
+  yMinNoMoveCam: -2
+  yMaxNoMoveCam: 2
+  xMinNoMoveCam: -3.5
+  xMaxNoMoveCam: 0
   yOffset: 6
   speed: 2
 --- !u!81 &9672903
