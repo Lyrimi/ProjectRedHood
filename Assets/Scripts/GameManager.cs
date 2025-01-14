@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
         Transitonanimator.SetTrigger("End");
         yield return new WaitForSecondsRealtime(2);
         SceneManager.LoadSceneAsync(SceneName);
-        Time.timeScale = 1;
         Transitonanimator.SetTrigger("Start");
+        yield return new WaitForSecondsRealtime(2);
+        Time.timeScale = 1.0f;
+
     }
 }
