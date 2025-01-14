@@ -134,8 +134,9 @@ public class PlayerController : EntityBase
         if (currentDashCooldown < 0) { currentDashCooldown = 0; }
     }
     //This runs once every physics frame
-    void FixedUpdate()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         //Reduces coyote time in frames
         if (grounded && rb.velocity.y <= 0)
         {

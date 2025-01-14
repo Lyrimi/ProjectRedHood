@@ -29,8 +29,9 @@ public class EnemyWanderer : EntityBase
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         if (grounded && Physics2D.Raycast(new Vector2(transform.position.x+dropDetectOffset.x*(facingRight ? 1 : -1), transform.position.y+dropDetectOffset.y), Vector2.down, dropLimit, dropLayers).collider == null) {
             facingRight = !facingRight;
             sr.flipX = !facingRight;

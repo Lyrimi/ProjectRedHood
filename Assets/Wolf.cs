@@ -24,8 +24,9 @@ public class Wolf : EntityBase
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         healthbar.Sethealth(health);
     }
 
