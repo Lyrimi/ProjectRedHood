@@ -160,6 +160,7 @@ MonoBehaviour:
   xMaxNoMoveCam: 0
   yOffset: 6
   speed: 2
+  YLowest: -5
 --- !u!81 &9672903
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9489,7 +9490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2025928906364706915, guid: 6260db077a230dd418068959d37020f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.91
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 2025928906364706915, guid: 6260db077a230dd418068959d37020f8, type: 3}
       propertyPath: m_LocalPosition.z

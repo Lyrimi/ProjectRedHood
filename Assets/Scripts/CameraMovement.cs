@@ -37,11 +37,11 @@ public class CameraMovement : MonoBehaviour
         } else if (relativePos.x < xMinNoMoveCam) {
             transform.position = new Vector3(transform.position.x + relativePos.x-xMinNoMoveCam , transform.position.y, transform.position.z);
         }
-        if (relativePos.y > yMaxNoMoveCam & relativePos.y+transform.position.y > YLowest)
+        if (relativePos.y > yMaxNoMoveCam)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + relativePos.y - yMaxNoMoveCam, transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Max(transform.position.y + relativePos.y - yMaxNoMoveCam, YLowest), transform.position.z);
         } else if (relativePos.y < yMinNoMoveCam) {
-            transform.position = new Vector3(transform.position.x, transform.position.y + relativePos.y - yMinNoMoveCam, transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Max(transform.position.y + relativePos.y - yMinNoMoveCam, YLowest), transform.position.z);
         }
     }
 }
