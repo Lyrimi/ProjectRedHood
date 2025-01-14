@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
    IEnumerator LoadScene(string SceneName) 
     {
         Transitonanimator.SetTrigger("End");
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(2);
         SceneManager.LoadSceneAsync(SceneName);
         Time.timeScale = 1;
         Transitonanimator.SetTrigger("Start");
