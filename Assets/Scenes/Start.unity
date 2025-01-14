@@ -812,6 +812,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fairy Grand
       objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 014bbcf77c771ee4a9be6faca70a51c2, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     - target: {fileID: 8784511573933536112, guid: 014bbcf77c771ee4a9be6faca70a51c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 165
@@ -909,6 +913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23175,6 +23183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fairy Small (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 70864b14d9d38f845a655f65cfbe69ad, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     - target: {fileID: 8784511573933536112, guid: 70864b14d9d38f845a655f65cfbe69ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 108.5
@@ -23488,6 +23500,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1691240269668440732, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     - target: {fileID: 1770993054736247068, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
       propertyPath: m_Name
       value: Fairy Rat
@@ -23549,6 +23565,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fairy
       objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     - target: {fileID: 8784511573933536112, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 111
@@ -23906,6 +23926,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25464,6 +25488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25651,6 +25679,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25822,6 +25854,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fairy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114391709667715723, guid: 71962722b2c08da418af17581cb94e30, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     - target: {fileID: 8784511573933536112, guid: 71962722b2c08da418af17581cb94e30, type: 3}
       propertyPath: m_LocalPosition.x
       value: 168
@@ -27753,6 +27789,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28818,6 +28858,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4603899913968496539, guid: b43964973070a7b4f82e63be6c51ca56, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 548286998}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
