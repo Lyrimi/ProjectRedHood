@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 public class Wolf : EntityBase
 {
+    public GameObject mouse;
     public GameObject Spike;
     public GameObject Slash;
     public Transform SlashSpawnpoint;
@@ -63,7 +65,10 @@ public class Wolf : EntityBase
     {
         Debug.Log("Dead Corutine started");
         yield return new WaitForSeconds(3f);
-        gameManager.nextScene("Start");
+        for (int i = 0; i < 12; i++)
+        {
+            Instantiate(mouse, transform.position, quaternion.identity);
+        }
         Destroy(healthbar.gameObject);
         base.Death();
     }
