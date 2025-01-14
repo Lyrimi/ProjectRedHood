@@ -121,12 +121,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a570f95692c890b4092493d210722e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 360
+  MaxHealth: 720
   MaxHitFrames: 5
+  mouse: {fileID: 0}
   Spike: {fileID: 5619517388982461510, guid: 908357e879a75674d9173cbdee06801e, type: 3}
   Slash: {fileID: 1242749648254285021, guid: ee04bf7d21118f949a3dfffee547fcce, type: 3}
   SlashSpawnpoint: {fileID: 7508352947698253101}
   healthbar: {fileID: 0}
+  dialog: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!61 &2436256484613592118
 BoxCollider2D:
   m_ObjectHideFlags: 0

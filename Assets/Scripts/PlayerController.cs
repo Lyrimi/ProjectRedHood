@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEditor.UI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : EntityBase
 {
@@ -251,7 +252,7 @@ public class PlayerController : EntityBase
         DeathAnim.SetTrigger("Dead");
         yield return new WaitForSecondsRealtime(3f);
         Debug.Log("restarted");
-        gameManager.nextScene("Start");
+        gameManager.nextScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
     }
 

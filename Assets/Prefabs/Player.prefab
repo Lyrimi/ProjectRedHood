@@ -216,7 +216,7 @@ MonoBehaviour:
   ProjectileSpeed: 12
   YSpeed: 0
   throwCooldown: 16
-  key2: 1
+  key2: 0
   Input: {fileID: 3077627284087651250}
 --- !u!114 &-6733163890475601830
 MonoBehaviour:
@@ -235,7 +235,7 @@ MonoBehaviour:
   ProjectileSpeed: 7
   YSpeed: 8.5
   throwCooldown: 42
-  key2: 0
+  key2: 1
   Input: {fileID: 3077627284087651250}
 --- !u!95 &8664950915269280085
 Animator:
