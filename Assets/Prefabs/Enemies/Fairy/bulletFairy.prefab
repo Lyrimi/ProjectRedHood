@@ -195,5 +195,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   ally: 0
-  damage: 6
+  damage: 4
   lifetime: 10
