@@ -186,7 +186,7 @@ MonoBehaviour:
   jumpForce: 12
   DashVelocity: 50
   DashFrames: 5
-  DashCooldown: 1.5
+  DashCooldown: 0.75
   Input: {fileID: 3077627284087651250}
   DeathAnim: {fileID: 0}
   hearts:
