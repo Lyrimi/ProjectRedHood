@@ -65,6 +65,7 @@ public class Wolf : EntityBase
     {
         Debug.Log("Dead Corutine started");
         yield return new WaitForSeconds(3f);
+        mouse.SetActive(true);
         for (int i = 0; i < 12; i++)
         {
             Instantiate(mouse, transform.position, quaternion.identity);
