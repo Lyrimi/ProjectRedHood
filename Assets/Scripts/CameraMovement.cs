@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -15,6 +16,7 @@ public class CameraMovement : MonoBehaviour
     public float xMaxNoMoveCam;
     public float yOffset;
     public float speed;
+    public float YLowest;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +39,9 @@ public class CameraMovement : MonoBehaviour
         }
         if (relativePos.y > yMaxNoMoveCam)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + relativePos.y - yMaxNoMoveCam, transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Max(transform.position.y + relativePos.y - yMaxNoMoveCam, YLowest), transform.position.z);
         } else if (relativePos.y < yMinNoMoveCam) {
-            transform.position = new Vector3(transform.position.x, transform.position.y + relativePos.y - yMinNoMoveCam, transform.position.z);
+            transform.position = new Vector3(transform.position.x, Mathf.Max(transform.position.y + relativePos.y - yMinNoMoveCam, YLowest), transform.position.z);
         }
     }
 }
