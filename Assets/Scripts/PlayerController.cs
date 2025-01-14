@@ -52,6 +52,7 @@ public class PlayerController : EntityBase
     
     //Visible in the editor; janky.
     public int throwDelay;
+    public bool victory = false;
 
     Vector2 moveDir;
     Vector2 dashDir;
@@ -256,7 +257,12 @@ public class PlayerController : EntityBase
         DeathAnim.SetTrigger("Dead");
         yield return new WaitForSecondsRealtime(3f);
         Debug.Log("restarted");
-        gameManager.nextScene(SceneManager.GetActiveScene().name);
+        if (victory) {
+            victory = false;
+            gameManager.nextScene("Menu");
+        } else {
+            gameManager.nextScene(SceneManager.GetActiveScene().name);
+        }
         Time.timeScale = 1;
     }
 

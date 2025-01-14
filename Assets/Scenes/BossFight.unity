@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1846094469}
+    - target: {fileID: 1691240269668440732, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
+      propertyPath: MaxHealth
+      value: 536870912
+      objectReference: {fileID: 0}
     - target: {fileID: 1770993054736247068, guid: 8b1c633f155b38f45994c796c21f2125, type: 3}
       propertyPath: m_Name
       value: Fairy Rat
@@ -1480,6 +1484,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 203228300}
     - target: {fileID: 7193157599822315738, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1846094475}
+    - target: {fileID: 7193157599822315738, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
       propertyPath: MaxHealth
       value: 3
       objectReference: {fileID: 0}
@@ -1501,6 +1509,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1292936599725026242, guid: 6260db077a230dd418068959d37020f8, type: 3}
   m_PrefabInstance: {fileID: 2003757289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846094475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4357966212924506230, guid: 6260db077a230dd418068959d37020f8, type: 3}
+  m_PrefabInstance: {fileID: 2003757289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846094469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33e5c5d03339a44690bfcd6c645ac21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2003757289
 PrefabInstance:
   m_ObjectHideFlags: 0
