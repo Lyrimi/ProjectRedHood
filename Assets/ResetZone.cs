@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ResetZone : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class ResetZone : MonoBehaviour
     {
         if (collision.CompareTag("Player")) 
         {
-            gameManager.nextScene("Start");
+            SceneManager.LoadScene("Start");
         }
     }
 }

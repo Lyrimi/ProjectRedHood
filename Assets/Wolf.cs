@@ -57,14 +57,14 @@ public class Wolf : EntityBase
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Animator>().enabled = false;
-        dialog.TypeWriter("Congrats you win but....... Grandama is Still Dead", 0.05f, 2f);
+        dialog.TypeWriter("Congratulations! You've won! \r\nBut\rBut\rBut Grandama is still dead. \r\n...\r...\r...\r...\r...Rats!", 0.05f, 2f);
         StartCoroutine(Dead());
     }
 
     IEnumerator Dead()
     {
         Debug.Log("Dead Corutine started");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6.5f);
         mouse.SetActive(true);
         for (int i = 0; i < 12; i++)
         {
