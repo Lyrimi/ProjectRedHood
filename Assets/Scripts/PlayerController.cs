@@ -64,6 +64,7 @@ public class PlayerController : EntityBase
     GameObject CurrentSign;
     BoxCollider2D box;
     bool watingforSceneChange = false;
+    bool watingforText = false;
 
     private void OnEnable()
     {
@@ -105,9 +106,12 @@ public class PlayerController : EntityBase
     }
     private void inputDash() 
     {
-        if (isStandingInSign )
+        if (isStandingInSign)
         {
-            CurrentSign.SendMessage("GetContent");
+            if (watingforText == false)
+            {
+                CurrentSign.SendMessage("GetContent", gameObject);
+            }
             return;
         }
         if (isStandingInHouse & watingforSceneChange == false)
@@ -268,6 +272,11 @@ public class PlayerController : EntityBase
     void SetIsHousePresent(bool isHouse)
     {
         isStandingInHouse = isHouse;
+    }
+    public void WatingForText(bool isWating)
+    {
+        watingforText = isWating;
+        Debug.Log(watingforText);
     }
 
 }

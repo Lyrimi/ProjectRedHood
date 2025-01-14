@@ -21,9 +21,10 @@ public class SignDisplay : MonoBehaviour
         
     }
     
-    void GetContent()
+    void GetContent(GameObject player)
     {
         dialog.TypeWriter(Content, 0.05f, 2f);
+        StartCoroutine(SetWating(player, (Content.Length * 0.05f) + 2f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,5 +44,11 @@ public class SignDisplay : MonoBehaviour
             TextDisplay.SetActive(false);
             collision.gameObject.SendMessage("SetIsSignPresent", false);
         }
+    }
+    IEnumerator SetWating(GameObject player, float time)
+    {
+        player.SendMessage("WatingForText", true);
+        yield return new WaitForSeconds(time);
+        player.SendMessage("WatingForText", false);
     }
 }
