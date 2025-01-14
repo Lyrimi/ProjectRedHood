@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: -6733163890475601830}
   - component: {fileID: 8664950915269280085}
   - component: {fileID: 3013178304912971375}
-  - component: {fileID: 3817783180537450373}
   - component: {fileID: 618167605431619194}
   m_Layer: 6
   m_Name: Player
@@ -190,6 +189,7 @@ MonoBehaviour:
   DashFrames: 5
   DashCooldown: 1.5
   Input: {fileID: 3077627284087651250}
+  DeathAnim: {fileID: 0}
   hearts:
   - {fileID: 0}
   - {fileID: 0}
@@ -270,41 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1900eb71cb5f22c4a9742f8c0daeada6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &3817783180537450373
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292936599725026242}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 071111e2ba51ec4439b45d824b92690e, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0064225197, y: 0.012754142}
-  m_Size: {x: 0.4852991, y: 1.85697}
-  m_Direction: 0
 --- !u!60 &618167605431619194
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -314,7 +279,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1292936599725026242}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 071111e2ba51ec4439b45d824b92690e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

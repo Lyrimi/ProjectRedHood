@@ -8,9 +8,7 @@ public class slash : MonoBehaviour
 {
     IEnumerator Expire(float delay)
     {
-        Debug.Log("waiting");
         yield return new WaitForSeconds(delay);
-        Debug.Log("Smited");
         Destroy(gameObject);
         Destroy(this);
     }

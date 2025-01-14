@@ -33,6 +33,7 @@ public class PlayerController : EntityBase
     [SerializeField] private InputManager Input;
 
     [Header("Heart system")]
+    [SerializeField] private Animator DeathAnim;
     public Image[] hearts;
     public Sprite normalHeart;
     public Sprite damagedheart;
@@ -56,6 +57,11 @@ public class PlayerController : EntityBase
     bool isJumping;
     bool isDashing;
     Animator anim;
+    public GameManager gameManager;
+    bool isStandingInSign = false;
+    bool isStandingInHouse = false;
+    GameObject CurrentSign;
+    BoxCollider2D box;
 
     private void OnEnable()
     {
@@ -76,6 +82,7 @@ public class PlayerController : EntityBase
         //get components
         spRend = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        box = GetComponent<BoxCollider2D>();
 
         displayHearts = hearts.Length;
     }
@@ -96,6 +103,16 @@ public class PlayerController : EntityBase
     }
     private void inputDash() 
     {
+        if (isStandingInSign)
+        {
+            CurrentSign.SendMessage("GetContent");
+            return;
+        }
+        if (isStandingInHouse)
+        {
+            gameManager.nextScene("BossFight");
+            return;
+        }
         isDashing = true;
     }
     private void inputDashCancel() 
@@ -215,10 +232,38 @@ public class PlayerController : EntityBase
                 hearts[i-1].sprite = damagedheart;
             }
         }
-        hitstop.Stop(hitStoptime);
+        if (health > 0)
+        {
+            hitstop.Stop(hitStoptime);
+        }
     }
     public new void Death()
     {
-        Debug.Log("i died");
+        StartCoroutine(deathEvent());
     }
+
+    IEnumerator deathEvent()
+    {
+        Time.timeScale = 0;
+        DeathAnim.SetTrigger("Dead");
+        yield return new WaitForSecondsRealtime(3f);
+        Debug.Log("restarted");
+        gameManager.nextScene("Start");
+        Time.timeScale = 1;
+    }
+
+    void SetIsSignPresent(bool IsSign)
+    {
+        isStandingInSign = IsSign;
+    }
+
+    void SetCurrentSign(GameObject sign)
+    {
+        CurrentSign = sign;
+    }
+    void SetIsHousePresent(bool isHouse)
+    {
+        isStandingInHouse = isHouse;
+    }
+
 }

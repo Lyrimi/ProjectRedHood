@@ -12,7 +12,9 @@ public class Wolf : EntityBase
     public Transform SlashSpawnpoint;
     Animator anim;
     public Healthbar healthbar;
-   // Start is called before the first frame update
+    public Dialog dialog;
+    public GameManager gameManager;
+    // Start is called before the first frame update
     new void Start()
     {
         base.Start();
@@ -48,9 +50,22 @@ public class Wolf : EntityBase
         StartCoroutine(AnimatorWait(waitime));
     }
 
+    IEnumerator Victory()
+    {
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Restarted");
+        gameManager.nextScene("Start");
+
+    }
+
     public new void Death()
     {
+        StartCoroutine(Victory());
+        dialog.TypeWriter("Congrats you win but....... Grandama is Still Dead", 0.05f, 2f);
+        
         Destroy(healthbar.gameObject);
         base.Death();
+
     }
+    
 }

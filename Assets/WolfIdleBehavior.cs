@@ -11,7 +11,6 @@ public class WolfIdleBehavior : StateMachineBehaviour
     {
         attack = UnityEngine.Random.Range(0, 2);
         animator.SetInteger("Attack", attack);
-        Debug.Log(attack);
         animator.GetComponent<Wolf>().SetWait(Random.Range(1.5f, 3f));
         //StartCoroutine(AnimatorWait(animator, Random.Range(1.5f, 3f)))
 
