@@ -233,18 +233,25 @@ public class PlayerController : EntityBase
     public new void Damage(int damage)
     {
         base.Damage(damage);
+        
+    }
+    public new void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
         int currHearts = displayHearts;
-        displayHearts = (int) Mathf.Ceil((float) health/MaxHealth*hearts.Length);
+        displayHearts = (int)Mathf.Ceil((float)health / MaxHealth * hearts.Length);
         if (displayHearts < currHearts)
         {
-            for (int i = currHearts; i > displayHearts && i > 0; i--) {
-                hearts[i-1].sprite = damagedheart;
+            for (int i = currHearts; i > displayHearts && i > 0; i--)
+            {
+                hearts[i - 1].sprite = damagedheart;
             }
         }
-        if (health > 0)
-        {
-            hitstop.Stop(hitStoptime);
-        }
+       // if (health > 0)
+       // {
+       //     hitstop.Stop(hitStoptime);
+       // }
+
     }
     public new void Death()
     {
