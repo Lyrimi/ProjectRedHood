@@ -22,6 +22,7 @@ public class PlayerController : EntityBase
     [Header("Jump")]
     [SerializeField] private int MaxCoyoteTime;
     [SerializeField] private int JumpAccelTime;
+    [SerializeField] private int JumpAccelTimeMin;
     [SerializeField] private float jumpForce;
 
     [Header("Dash")]
@@ -171,12 +172,12 @@ public class PlayerController : EntityBase
             //sets accel time for the maximum time the force of the jump can be applied
             accelTime = JumpAccelTime;
             coyoteTime = 0;
-            rb.AddForce(new Vector2(0, jumpForce));
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
         //While jump button is pressed and acceltime is still active make the y force equal to the jumpForce
-        if (isJumping && accelTime > 0)
+        else if (isJumping && accelTime > 0 || accelTime > JumpAccelTime-JumpAccelTimeMin)
         {
-            rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, jumpForce - rb.velocity.y), ForceMode2D.Impulse);
             accelTime -= 1;
         }
         //when button is released set accel time to 0

@@ -182,8 +182,9 @@ MonoBehaviour:
   friction: 70
   airFriction: 25
   MaxCoyoteTime: 3
-  JumpAccelTime: 7
-  jumpForce: 12
+  JumpAccelTime: 12
+  JumpAccelTimeMin: 4
+  jumpForce: 8.4
   DashVelocity: 50
   DashFrames: 5
   DashCooldown: 0.75
