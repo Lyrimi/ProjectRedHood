@@ -9,6 +9,8 @@ public abstract class EntityBase : MonoBehaviour
     internal Renderer render;
     public int MaxHealth = 36;
     public int MaxHitFrames = 10;
+    int hitFrames = 0;
+    int hitFlash = 0;
     internal bool grounded;
     internal float gravity = 1f;
     internal int health;
@@ -27,10 +29,35 @@ public abstract class EntityBase : MonoBehaviour
     {
         
     }
-    
 
-    public void Damage(int damage) 
+	public void FixedUpdate() {
+		if (hitFlash > 0) {
+            hitFlash--;
+            if (hitFlash == 0) {
+                if (hitFrames == 0) {
+                    render.material.SetColor("_Color", Color.white);
+                } else {
+                    render.material.SetColor("_Color", new Color(1, .33333f, .33333f));
+                }
+            }
+        }
+        if (hitFrames > 0) {
+            hitFrames--;
+            if (hitFrames == 0) {
+                render.material.SetColor("_Color", Color.white);
+            }
+        }
+	}
+
+
+	public void Damage(int damage) 
     {
+        gameObject.SendMessage("TakeDamage", damage);
+        hitFlash = 8;
+        render.material.SetColor("_Color", Color.red);
+    }
+
+    public void TakeDamage(int damage) {
         health -= damage;
         if (health <= 0) {
             gameObject.SendMessage("Death", damage);
@@ -39,11 +66,14 @@ public abstract class EntityBase : MonoBehaviour
 
     public void DamageHitframes(int damage) 
     {
-        if (hashitFrames == false) 
+        if (hitFrames == 0) 
         {
             //this is dumb
-            gameObject.SendMessage("Damage", damage);
-            StartCoroutine(hitcolor(MaxHitFrames));
+            gameObject.SendMessage("TakeDamage", damage);
+            hitFrames = MaxHitFrames;
+            if (hitFlash == 0) {
+                render.material.SetColor("_Color", new Color(1, .33333f, .33333f));
+            }
         }
     }
 
@@ -82,21 +112,5 @@ public abstract class EntityBase : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
-    }
-    IEnumerator hitcolor (int imuntyframes)
-    {
-        hashitFrames = true;
-        render.material.SetColor("_Color", Color.red);
-        yield return StartCoroutine(WaitForFixedFrames(imuntyframes));
-        render.material.SetColor("_Color", Color.white);
-        hashitFrames = false;
-    }
-
-    IEnumerator WaitForFixedFrames(int frames)
-    {
-        for (int i = 0; i < frames; i++)
-        {
-            yield return new WaitForFixedUpdate();
-        }
     }
 }

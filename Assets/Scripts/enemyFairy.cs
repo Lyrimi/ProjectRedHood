@@ -137,10 +137,13 @@ public class EnemyFairy : EntityBase
         wanderAngleCurrent = wanderAngleTarget;
         wanderAngleTime = Random.Range(wanderAngleMinTime, wanderAngleMaxTime+1);
         //Variables for the other behaviours don't need to be set up, as they either don't have variables that need to be set up, or are angry behaviours. Angry behaviours don't need to be set up at start, as the Fairy starts calm, and sets up the angry behaviour variables when switching to angry anyway.
+
+        render = sr;
     }
 
-    void FixedUpdate()
+    new void FixedUpdate()
     {
+        base.FixedUpdate();
         //Create a vector with the distance between the fairy and its enemy
         Vector2 distance = enemy.transform.position-transform.position;
 
