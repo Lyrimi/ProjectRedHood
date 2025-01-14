@@ -2002,10 +2002,6 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1170735631}
-    - target: {fileID: 4603899913968496539, guid: 023c3eb81b48db840b540a2d059f588b, type: 3}
-      propertyPath: MaxHealth
-      value: 4800
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
