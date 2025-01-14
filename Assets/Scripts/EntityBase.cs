@@ -14,7 +14,6 @@ public abstract class EntityBase : MonoBehaviour
     internal bool grounded;
     internal float gravity = 1f;
     internal int health;
-    internal bool hashitFrames = false;
 
     // Start is called before the first frame update
     internal void Start()

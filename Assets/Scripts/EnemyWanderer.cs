@@ -45,6 +45,8 @@ public class EnemyWanderer : EntityBase
             movement = accel;
         }
         rb.AddForce(new Vector2(facingRight ? movement : -movement, 0));
+
+        render = sr;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
