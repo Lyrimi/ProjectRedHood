@@ -50,22 +50,21 @@ public class Wolf : EntityBase
         StartCoroutine(AnimatorWait(waitime));
     }
 
-    IEnumerator Victory()
-    {
-        yield return new WaitForSeconds(3f);
-        Debug.Log("Restarted");
-        gameManager.nextScene("Start");
-
-    }
-
     public new void Death()
     {
-        StartCoroutine(Victory());
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<Animator>().enabled = false;
         dialog.TypeWriter("Congrats you win but....... Grandama is Still Dead", 0.05f, 2f);
-        
+        StartCoroutine(Dead());
+    }
+
+    IEnumerator Dead()
+    {
+        Debug.Log("Dead Corutine started");
+        yield return new WaitForSeconds(3f);
+        gameManager.nextScene("Start");
         Destroy(healthbar.gameObject);
         base.Death();
-
     }
     
 }

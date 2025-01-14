@@ -62,6 +62,7 @@ public class PlayerController : EntityBase
     bool isStandingInHouse = false;
     GameObject CurrentSign;
     BoxCollider2D box;
+    bool watingforSceneChange = false;
 
     private void OnEnable()
     {
@@ -103,14 +104,15 @@ public class PlayerController : EntityBase
     }
     private void inputDash() 
     {
-        if (isStandingInSign)
+        if (isStandingInSign )
         {
             CurrentSign.SendMessage("GetContent");
             return;
         }
-        if (isStandingInHouse)
+        if (isStandingInHouse & watingforSceneChange == false)
         {
             gameManager.nextScene("BossFight");
+            watingforSceneChange = true;
             return;
         }
         isDashing = true;

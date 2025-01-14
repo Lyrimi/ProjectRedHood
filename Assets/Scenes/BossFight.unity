@@ -1349,6 +1349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: big_bad_wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 2039134921352469815, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4602301295900261068, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.509575
@@ -1389,13 +1393,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7140328179094091678, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7193157599822315738, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
       propertyPath: dialog
       value: 
       objectReference: {fileID: 203228300}
     - target: {fileID: 7193157599822315738, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
       propertyPath: MaxHealth
-      value: 720
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7193157599822315738, guid: d4598fa67bd08984f888a7c283d88a72, type: 3}
       propertyPath: healthbar
