@@ -142,7 +142,7 @@ MonoBehaviour:
   circlingAngleMin: 2.3
   circlingAngleMax: 2.8
   circlingAngleChangeSpeed: 0.06
-  preferredDistance: 7
+  preferredDistance: 6.5
   cycleWeight: 0.8
   homeSeekingWeight: 0.35
   targetSeekingWeight: 0.7
@@ -156,10 +156,10 @@ MonoBehaviour:
   angerToBurstDelay: 16
   burstMin: 1
   burstMax: 3
-  burstTimeMinBase: 28
-  burstTimeMaxBase: 30
-  burstTimeMinPer: 6
-  burstTimeMaxPer: 7
+  burstTimeMinBase: 36
+  burstTimeMaxBase: 38
+  burstTimeMinPer: 8
+  burstTimeMaxPer: 9
 --- !u!1 &5525151977589174125
 GameObject:
   m_ObjectHideFlags: 0

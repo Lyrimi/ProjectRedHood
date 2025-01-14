@@ -122,7 +122,6 @@ MonoBehaviour:
   MaxHealth: 72
   MaxHitFrames: 10
   sr: {fileID: 77542904080543508}
-  enableAggroColor: 0
   turnaroundThreshold: 0.05
   enemy: {fileID: 0}
   speed: 4
@@ -143,7 +142,7 @@ MonoBehaviour:
   circlingAngleMin: 2.1
   circlingAngleMax: 2.6
   circlingAngleChangeSpeed: 0.05
-  preferredDistance: 7
+  preferredDistance: 6.5
   cycleWeight: 1
   homeSeekingWeight: 0.28
   targetSeekingWeight: 1
@@ -152,14 +151,15 @@ MonoBehaviour:
   lowSpeedThreshold: 0.6
   projectile: {fileID: 4274392985334943230, guid: b042bfb41c613b147abf5a2c6381c5e6, type: 3}
   projectileSpeed: 5
+  projectileXBoost: 0
   burstProjectileDelay: 8
   angerToBurstDelay: 10
   burstMin: 2
   burstMax: 5
-  burstTimeMinBase: 24
-  burstTimeMaxBase: 28
-  burstTimeMinPer: 8
-  burstTimeMaxPer: 10
+  burstTimeMinBase: 32
+  burstTimeMaxBase: 36
+  burstTimeMinPer: 10
+  burstTimeMaxPer: 12
 --- !u!1 &5525151977589174125
 GameObject:
   m_ObjectHideFlags: 0

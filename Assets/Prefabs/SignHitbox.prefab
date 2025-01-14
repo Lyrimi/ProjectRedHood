@@ -167,7 +167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press X to interact
+  m_text: Press X to read
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d5d50019cd48b4844902ce50e6fc950c, type: 2}
   m_sharedMaterial: {fileID: 6172079289138198817, guid: d5d50019cd48b4844902ce50e6fc950c, type: 2}
