@@ -16,6 +16,8 @@ public class Wolf : EntityBase
     public Healthbar healthbar;
     public Dialog dialog;
     public GameManager gameManager;
+
+    public PlayerController player;
     // Start is called before the first frame update
     new void Start()
     {
@@ -63,12 +65,13 @@ public class Wolf : EntityBase
 
     IEnumerator Dead()
     {
-        Debug.Log("Dead Corutine started");
+        Debug.Log("Dead Coroutine started");
         yield return new WaitForSeconds(6.5f);
+        player.victory = true;
         mouse.SetActive(true);
         for (int i = 0; i < 12; i++)
         {
-            Instantiate(mouse, transform.position, quaternion.identity);
+            Instantiate(mouse, transform.position+new Vector3(UnityEngine.Random.Range(-3f, 3f), UnityEngine.Random.Range(-1f, 1f), 0), quaternion.identity);
         }
         Destroy(healthbar.gameObject);
         base.Death();
