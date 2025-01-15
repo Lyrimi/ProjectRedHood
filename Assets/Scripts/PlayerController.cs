@@ -271,7 +271,6 @@ public class PlayerController : EntityBase
         } else {
             gameManager.nextScene(SceneManager.GetActiveScene().name);
         }
-        Time.timeScale = 1;
     }
 
     void SetIsSignPresent(bool IsSign)
