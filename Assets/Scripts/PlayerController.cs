@@ -118,8 +118,10 @@ public class PlayerController : EntityBase
         }
         if (isStandingInHouse & watingforSceneChange == false)
         {
+            Time.timeScale = 0f;
             gameManager.nextScene("BossFight");
             watingforSceneChange = true;
+            CurrentSign.SendMessage("GetContent", gameObject);
             return;
         }
         isDashing = true;
