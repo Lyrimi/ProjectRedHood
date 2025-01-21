@@ -25616,7 +25616,7 @@ PrefabInstance:
       objectReference: {fileID: 444616244}
     - target: {fileID: 4429877159254874945, guid: 0de94510ed2a1f943b6ac7ef0f591df4, type: 3}
       propertyPath: Content
-      value: Press G/C to lob an apple  Press F to throw a gingerbread man
+      value: Press E/C to lob an apple  Press F/V to throw a gingerbread man
       objectReference: {fileID: 0}
     - target: {fileID: 6326550830339140970, guid: 0de94510ed2a1f943b6ac7ef0f591df4, type: 3}
       propertyPath: m_Name
@@ -29821,7 +29821,7 @@ PrefabInstance:
       objectReference: {fileID: 444616244}
     - target: {fileID: 4429877159254874945, guid: 0de94510ed2a1f943b6ac7ef0f591df4, type: 3}
       propertyPath: Content
-      value: Press X to dash forward
+      value: Press X/Q to dash forward
       objectReference: {fileID: 0}
     - target: {fileID: 6326550830339140970, guid: 0de94510ed2a1f943b6ac7ef0f591df4, type: 3}
       propertyPath: m_Name

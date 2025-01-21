@@ -206,6 +206,28 @@
                 },
                 {
                     "name": "",
+                    "id": "2001febe-da28-4577-9c9d-550e50ee698b",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7944c3b-fc2b-4c13-b04b-b6cd99cb840c",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2a8cb1d1-fb4a-40dd-a8df-eb94db69c1e6",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -217,8 +239,30 @@
                 },
                 {
                     "name": "",
+                    "id": "ff51c595-49e8-439d-80f7-9d074ce472f8",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ebb0f9b9-2848-49c1-b0e3-44541a13ec80",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d59759a9-77b3-43b6-8dd3-87d26f720983",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -240,7 +284,7 @@
                 {
                     "name": "",
                     "id": "b51bdff0-066f-45ea-85e0-16e73ca10dd8",
-                    "path": "<Keyboard>/g",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
