@@ -128,7 +128,7 @@ MonoBehaviour:
   deflectionMultiplierRange: 0.08
   minScatterSpeed: 0.3
   maxScatterSpeed: 0.9
-  damage: 14
+  damage: 9
 --- !u!1 &6605354464455113651
 GameObject:
   m_ObjectHideFlags: 0

@@ -119,10 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72942f990694cb849b7636c2672ef177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 216
+  MaxHealth: 144
   MaxHitFrames: 10
   sr: {fileID: 77542904080543508}
-  enableAggroColor: 0
   turnaroundThreshold: 0.05
   enemy: {fileID: 0}
   speed: 3.5
@@ -143,7 +142,7 @@ MonoBehaviour:
   circlingAngleMin: 2.3
   circlingAngleMax: 2.8
   circlingAngleChangeSpeed: 0.06
-  preferredDistance: 7
+  preferredDistance: 6.5
   cycleWeight: 0.8
   homeSeekingWeight: 0.35
   targetSeekingWeight: 0.7
@@ -152,14 +151,15 @@ MonoBehaviour:
   lowSpeedThreshold: 0.6
   projectile: {fileID: 4274392985334943230, guid: 5663d08cbb86d4c4a8261275263cde6a, type: 3}
   projectileSpeed: 4
+  projectileXBoost: 0
   burstProjectileDelay: 16
   angerToBurstDelay: 16
   burstMin: 1
   burstMax: 3
-  burstTimeMinBase: 28
-  burstTimeMaxBase: 30
-  burstTimeMinPer: 6
-  burstTimeMaxPer: 7
+  burstTimeMinBase: 36
+  burstTimeMaxBase: 38
+  burstTimeMinPer: 8
+  burstTimeMaxPer: 9
 --- !u!1 &5525151977589174125
 GameObject:
   m_ObjectHideFlags: 0

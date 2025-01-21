@@ -30,7 +30,7 @@ public class CameraMovement : MonoBehaviour
         Vector3 campos = new Vector3 (transform.position.x, transform.position.y - yOffset, transform.position.z);
         Vector3 relativePos = player.transform.position - transform.position;
         relativePos.z = 0;
-        Debug.Log(relativePos);
+        //Debug.Log(relativePos);
         if (relativePos.x > xMaxNoMoveCam)
         {
             transform.position = new Vector3(transform.position.x + relativePos.x-xMaxNoMoveCam , transform.position.y, transform.position.z);

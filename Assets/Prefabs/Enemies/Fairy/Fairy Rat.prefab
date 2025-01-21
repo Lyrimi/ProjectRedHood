@@ -142,7 +142,7 @@ MonoBehaviour:
   circlingAngleMin: 2.2
   circlingAngleMax: 2.7
   circlingAngleChangeSpeed: 0.07
-  preferredDistance: 6.5
+  preferredDistance: 6
   cycleWeight: 0.9
   homeSeekingWeight: 0.3
   targetSeekingWeight: 1
@@ -156,10 +156,10 @@ MonoBehaviour:
   angerToBurstDelay: 24
   burstMin: 1
   burstMax: 3
-  burstTimeMinBase: 30
-  burstTimeMaxBase: 36
-  burstTimeMinPer: 8
-  burstTimeMaxPer: 10
+  burstTimeMinBase: 32
+  burstTimeMaxBase: 38
+  burstTimeMinPer: 10
+  burstTimeMaxPer: 12
   surrenderParticle: {fileID: 6514292862139498523, guid: 42aeabcfd889a204a915fa8a6031d1c9, type: 3}
   surrenderRotationMin: 60
   surrenderRotationMax: 120

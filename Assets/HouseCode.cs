@@ -7,6 +7,7 @@ public class HouseCode : MonoBehaviour
     public GameObject TextDisplay;
     public string Content;
     public Dialog dialog;
+    bool sceneChange = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class HouseCode : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GetContent(GameObject player)
+    {
+        sceneChange = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,7 +36,7 @@ public class HouseCode : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") & sceneChange == false)
         {
             TextDisplay.SetActive(false);
             collision.gameObject.SendMessage("SetIsHousePresent", false);

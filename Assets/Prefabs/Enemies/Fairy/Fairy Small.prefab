@@ -150,16 +150,16 @@ MonoBehaviour:
   circlingWeight: 4
   lowSpeedThreshold: 0.6
   projectile: {fileID: 4274392985334943230, guid: 6c79fe4f50f3aa640a77af9752b80516, type: 3}
-  projectileSpeed: 7
+  projectileSpeed: 6
   projectileXBoost: 0
   burstProjectileDelay: 4
   angerToBurstDelay: 6
   burstMin: 4
   burstMax: 8
-  burstTimeMinBase: 22
-  burstTimeMaxBase: 26
-  burstTimeMinPer: 5
-  burstTimeMaxPer: 6
+  burstTimeMinBase: 26
+  burstTimeMaxBase: 30
+  burstTimeMinPer: 6
+  burstTimeMaxPer: 7
 --- !u!1 &5525151977589174125
 GameObject:
   m_ObjectHideFlags: 0

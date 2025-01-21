@@ -18,6 +18,7 @@ public class Wolf : EntityBase
     public GameManager gameManager;
 
     public PlayerController player;
+    bool dead = false;
     // Start is called before the first frame update
     new void Start()
     {
@@ -57,6 +58,8 @@ public class Wolf : EntityBase
 
     public new void Death()
     {
+        if (dead) return;
+        dead = true;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Animator>().enabled = false;
         dialog.TypeWriter("Congratulations! You've won! \r\nBut\rBut\rBut Grandama is still dead. \r\n...\r...\r...\r...\r...Rats!", 0.05f, 2f);

@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEditor.UI;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +20,7 @@ public class PlayerController : EntityBase
     [Header("Jump")]
     [SerializeField] private int MaxCoyoteTime;
     [SerializeField] private int JumpAccelTime;
+    [SerializeField] private int JumpAccelTimeMin;
     [SerializeField] private float jumpForce;
 
     [Header("Dash")]
@@ -117,8 +116,10 @@ public class PlayerController : EntityBase
         }
         if (isStandingInHouse & watingforSceneChange == false)
         {
+            Time.timeScale = 0f;
             gameManager.nextScene("BossFight");
             watingforSceneChange = true;
+            CurrentSign.SendMessage("GetContent", gameObject);
             return;
         }
         isDashing = true;
@@ -171,12 +172,12 @@ public class PlayerController : EntityBase
             //sets accel time for the maximum time the force of the jump can be applied
             accelTime = JumpAccelTime;
             coyoteTime = 0;
-            rb.AddForce(new Vector2(0, jumpForce));
+            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
         //While jump button is pressed and acceltime is still active make the y force equal to the jumpForce
-        if (isJumping && accelTime > 0)
+        else if (isJumping && accelTime > 0 || accelTime > JumpAccelTime-JumpAccelTimeMin)
         {
-            rb.AddForce(new Vector2(0, ((jumpForce) - rb.velocity.y)), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0, jumpForce - rb.velocity.y), ForceMode2D.Impulse);
             accelTime -= 1;
         }
         //when button is released set accel time to 0
@@ -270,7 +271,6 @@ public class PlayerController : EntityBase
         } else {
             gameManager.nextScene(SceneManager.GetActiveScene().name);
         }
-        Time.timeScale = 1;
     }
 
     void SetIsSignPresent(bool IsSign)
